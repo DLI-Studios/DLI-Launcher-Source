@@ -2,262 +2,728 @@
 
 <p align="center">
 
-### The Future of Minecraft Starts Here.
+# A New Era of Minecraft Begins Here.
 
-A premium Minecraft launcher designed for the next generation of players.
+**The official gateway to the DLI Gaming Platform.**
+
+A next-generation Minecraft launcher built for players who expect more.
 
 </p>
 
 ---
 
-## ✦ Experience Minecraft Differently
+<p align="center">
 
-DLI Launcher is the official gateway to the **DLI Gaming Platform**.
+`Premium Experience` • `Modern Architecture` • `Secure Platform` • `Minecraft Reimagined`
 
-Built from the ground up with modern technologies, DLI Launcher delivers a seamless experience where performance, security, and design come together.
-
-From launching your game to managing your identity inside the DLI ecosystem, every interaction is designed to feel fast, simple, and premium.
-
-> "Experience Minecraft, beautifully."
+</p>
 
 ---
 
-# About DLI Launcher
+# ✦ Welcome to DLI
 
-Traditional launchers only start your game.
+Minecraft has always been more than a game.
 
-**DLI Launcher creates an experience.**
+It is a world of creativity, communities, memories, and endless possibilities.
+
+**DLI Launcher was created with one vision:**
+
+> Transform the way players experience Minecraft.
+
+Not just launching a game.
+
+Not just managing files.
+
+Creating a complete digital experience.
+
+---
+
+# 🚀 What is DLI Launcher?
+
+DLI Launcher is a premium desktop application designed as the central hub of the **DLI Gaming Platform**.
 
 It combines:
 
-- A modern desktop interface
-- Secure account infrastructure
-- Intelligent Minecraft management
-- Future-ready ecosystem integration
+```
+                 DLI ECOSYSTEM
 
-DLI Launcher is designed to become the central hub of the DLI universe.
 
----
+                    PLAYER
 
-# ✧ Core Experience
 
-## Seamless Authentication
+                      │
 
-Your account. Your identity. Your ecosystem.
+                      ▼
 
-DLI Launcher provides a secure authentication experience powered by modern technologies.
 
-Features:
+              ┌──────────────┐
+              │ DLI Launcher │
+              └──────────────┘
 
-• Discord OAuth 2.0 + PKCE  
-• Firebase Authentication  
-• Secure session handling  
-• Player account integration  
+                      │
 
----
+       ┌──────────────┼──────────────┐
 
-## Your Minecraft, Managed
+       ▼              ▼              ▼
 
-A powerful Minecraft management system built for simplicity.
+ Authentication   Minecraft      Platform
+    System        Engine        Services
 
-Features:
 
-• Automatic Minecraft installation  
-• Version management  
-• Smart file verification  
-• Optimized launching  
-• Future modpack support  
+       │              │              │
 
----
 
-## Designed Like a Premium Platform
+       ▼              ▼              ▼
 
-Every detail matters.
 
-The interface is built around a modern gaming experience:
-
-• Glassmorphism design  
-• Dark premium theme  
-• Smooth animations  
-• Minimal navigation  
-• Responsive layouts  
-
-Inspired by platforms players already love.
-
----
-
-# Architecture
-
-DLI Launcher combines web technology flexibility with native desktop performance.
+ Accounts        Gameplay      DLI Universe
 
 ```
-                 DLI LAUNCHER
 
-                     USER
-
-                      │
-
-              Premium Interface
-
-                      │
-
-        ┌─────────────┴─────────────┐
-
-        React + TypeScript       WPF Core
-
-        │                         │
-
-        │                    C# Services
-
-        │                         │
-
-        └─────────────┬─────────────┘
-
-                      │
-
-              Minecraft Engine
-
-                      │
-
-                 CmlLib.Core
-
-                      │
-
-              Minecraft Runtime
-```
+Every system works together to create a seamless experience.
 
 ---
 
-# Technology
+# ✨ The Experience
 
-| Layer | Technology |
-|------|------------|
-| Interface | React |
+## 🎮 Instant Minecraft
+
+Launching Minecraft should feel effortless.
+
+DLI Launcher provides:
+
+- Automatic installation
+- Version management
+- Intelligent file handling
+- Optimized startup process
+- Future modpack integration
+
+
+---
+
+## 🔐 Your Identity, Everywhere
+
+Your DLI account is your digital identity.
+
+Built with modern authentication technologies:
+
+- Discord OAuth 2.0
+- PKCE Security Flow
+- Firebase Authentication
+- Secure sessions
+- Player profiles
+
+
+Your account follows you through the DLI universe.
+
+---
+
+## 👤 Personal Player Profiles
+
+Every player deserves a unique identity.
+
+DLI Launcher introduces:
+
+- Custom profiles
+- Avatar systems
+- Account customization
+- Future cosmetics integration
+
+
+---
+
+# 🎨 Designed For The Future
+
+DLI Launcher is built around a premium gaming interface philosophy.
+
+Inspired by:
+
+- Modern game launchers
+- Digital platforms
+- Minimal futuristic design
+
+Featuring:
+
+```
+╭──────────────────────────────╮
+│                              │
+│      Premium Interface       │
+│                              │
+│   • Glass Design             │
+│   • Smooth Animations        │
+│   • Dark Experience          │
+│   • Clean Navigation         │
+│                              │
+╰──────────────────────────────╯
+```
+
+Every pixel has a purpose.
+
+---
+
+# ⚡ Performance Architecture
+
+DLI Launcher uses a hybrid architecture combining web flexibility with native desktop performance.
+
+```
+                     DLI LAUNCHER
+
+
+                         UI
+
+              React + TypeScript
+
+                         │
+
+                         ▼
+
+                    WebView2
+
+                         │
+
+                         ▼
+
+                  .NET 9 WPF Core
+
+                         │
+
+                         ▼
+
+                    C# Services
+
+                         │
+
+                         ▼
+
+                 Minecraft Engine
+
+                         │
+
+                         ▼
+
+                   CmlLib.Core
+
+```
+
+Built for speed.
+Built for scalability.
+Built for the future.
+
+---
+
+# 🛠 Technology Stack
+
+| System | Technology |
+|-|-|
+| Frontend | React |
 | Language | TypeScript |
-| Build System | Vite |
-| Desktop Runtime | .NET 9 WPF |
-| Native Layer | C# |
-| Web Engine | WebView2 |
+| Build Tool | Vite |
+| Desktop Framework | .NET 9 WPF |
+| Backend Logic | C# |
+| Rendering | WebView2 |
 | Authentication | Firebase |
-| OAuth | Discord PKCE |
+| Identity Provider | Discord OAuth |
+| Security | PKCE |
 | Minecraft Engine | CmlLib.Core |
 
 ---
+# 🌐 The DLI Universe
 
-# Project Vision
+DLI Launcher is not the destination.
 
-DLI Launcher is only the beginning.
+It is the beginning.
 
-The long-term goal is creating a complete Minecraft ecosystem:
+The launcher is designed to become the foundation of a complete Minecraft ecosystem where every service connects together.
 
 ```
-DLI PLATFORM
+                    DLI UNIVERSE
 
-       DLI Launcher
-            │
-            │
-       DLI Client
-            │
-            │
-       DLI Core
-            │
-            │
-       DLI Network
-            │
-            │
-     Complete Experience
+
+                         💜
+
+                    DLI ACCOUNT
+
+                         │
+
+        ┌────────────────┼────────────────┐
+
+        ▼                ▼                ▼
+
+
+ DLI LAUNCHER       DLI CLIENT       DLI NETWORK
+
+
+        │                │                │
+
+
+        ▼                ▼                ▼
+
+
+ Game Access       In-Game        Multiplayer
+ & Management      Experience     Ecosystem
+
+
+        │                │                │
+
+
+        └────────────────┼────────────────┘
+
+
+                         ▼
+
+
+                 COMPLETE EXPERIENCE
+
 ```
 
-A connected platform where players can discover, customize, and experience Minecraft in a completely new way.
+The future of DLI includes:
+
+- A connected player identity
+- Custom Minecraft experiences
+- Social features
+- Cosmetic systems
+- Community-driven features
+- A complete gaming platform
 
 ---
 
-# Development Roadmap
+# 🧩 Platform Features
 
-## Completed
+## Account System
 
-✓ Premium launcher interface  
-✓ Authentication system  
-✓ Minecraft launching  
-✓ Version management  
-✓ Automatic updates  
-✓ Player profiles  
+A unified identity system designed for the entire DLI ecosystem.
 
+Future capabilities:
 
-## Currently Building
+```
+Player Account
 
-→ DLI API  
-→ Advanced account system  
-→ Player dashboard  
-→ News platform  
-→ Social features  
+        │
 
+        ├── Profile
 
-## Future
+        ├── Friends
 
-→ DLI Client  
-→ Cosmetic ecosystem  
-→ Marketplace  
-→ Cloud profiles  
-→ Achievement system  
-→ Complete DLI universe  
+        ├── Achievements
+
+        ├── Cosmetics
+
+        └── Progression
+```
 
 ---
 
-# Security First
+## Update Infrastructure
 
-Security is a fundamental part of DLI Launcher.
+DLI Launcher is built with a modern update architecture.
 
-The platform focuses on:
+Designed for:
 
-• Modern authentication standards  
-• Protected communication  
-• Safe account management  
-• Reliable update delivery  
+- Automatic version detection
+- Secure file delivery
+- Integrity verification
+- Background updates
+- Future CDN integration
+
+
+Players stay updated automatically.
+
+No manual downloads.
+No unnecessary setup.
 
 ---
 
-# Developer Information
+# 🛡️ Security Philosophy
+
+Security is not an extra feature.
+
+It is a foundation.
+
+DLI Launcher focuses on:
+
+```
+Authentication
+      │
+      ▼
+Secure Sessions
+      │
+      ▼
+Protected Communication
+      │
+      ▼
+Reliable Experience
+```
+
+Implemented systems:
+
+✓ OAuth 2.0 authentication  
+✓ PKCE protection  
+✓ Secure account handling  
+✓ Controlled update system  
+
+---
+
+# 🗺️ Development Roadmap
+
+## Phase I — Foundation
+
+Completed:
+
+```
+✓ Launcher Core
+✓ Premium UI System
+✓ Authentication
+✓ Minecraft Integration
+✓ Version Management
+✓ Update Infrastructure
+```
+
+---
+
+## Phase II — Platform Expansion
+
+Currently developing:
+
+```
+→ DLI API
+
+→ Advanced Account System
+
+→ Player Dashboard
+
+→ News & Announcement Platform
+
+→ Social Infrastructure
+
+→ Improved Launcher Experience
+```
+
+---
+
+## Phase III — DLI Universe
+
+Future vision:
+
+```
+→ DLI Client
+
+→ Cosmetic Marketplace
+
+→ Achievement System
+
+→ Cloud Profiles
+
+→ Community Features
+
+→ Full Gaming Ecosystem
+```
+
+---
+
+# 💻 Development
 
 ## Requirements
 
-- Windows 10 / 11
-- .NET 9 SDK
-- Node.js 20+
-- Java Runtime Environment
+Before running DLI Launcher locally:
 
+```
+Windows 10 / Windows 11
+
+.NET 9 SDK
+
+Node.js 20+
+
+Java Runtime Environment
+
+Minecraft Java Edition
+```
+
+---
 
 ## Installation
 
+Clone the repository:
+
 ```bash
 git clone https://github.com/DLI-Studios/DLI-Launcher-Source.git
+```
 
+Navigate:
+
+```bash
 cd DLI-Launcher-Source
+```
 
+Install dependencies:
+
+```bash
 npm install
+```
 
+Start development:
+
+```bash
 npm run dev
 ```
 
 ---
 
-# License
+# 📁 Repository Structure
 
-DLI Launcher is proprietary software developed by **DLI Studios**.
+```
+DLI-Launcher
 
-All rights reserved.
+│
 
-This project and its source code may not be redistributed, modified, or used commercially without permission.
+├── src
+
+│   ├── components
+│   │
+│   ├── services
+│   │
+│   ├── hooks
+│   │
+│   ├── lib
+│   │
+│   ├── assets
+│   │
+│   └── styles
+
+
+├── launcher
+
+│   └── Minecraft Core
+
+
+├── backend
+
+│   └── Desktop Services
+
+
+└── README.md
+```
 
 ---
 
+# 🤝 Contribution
+
+DLI Launcher is currently under active development.
+
+The project is focused on building a high-quality Minecraft experience.
+
+Ideas, feedback, and technical improvements are always valuable.
+
+---
+
+# 📜 License
+
+© DLI Studios
+
+DLI Launcher is proprietary software.
+
+All rights reserved.
+
+The source code, design systems, and technology behind DLI Launcher may not be copied, redistributed, or used commercially without permission.
+
+---
+
+# 💜 DLI Studios
+
 <p align="center">
 
-## 💜 DLI Studios
+## Premium Minecraft Experiences
 
-### Premium Minecraft Experiences
+### Built Beyond The Game.
 
-Built for players.
-Designed for the future.
+<br>
+
+**Create. Connect. Experience.**
+
+</p>
+
+---
+# 🎯 Design Philosophy
+
+DLI Launcher was created around three fundamental principles:
+
+```
+              SIMPLE
+
+                ▲
+
+                │
+
+                │
+
+FAST ◄───────────┼───────────► BEAUTIFUL
+
+                │
+
+                │
+
+                ▼
+
+             POWERFUL
+```
+
+## Simple
+
+Complex systems should feel simple.
+
+Players should never worry about technical details.
+
+The experience should just work.
+
+---
+
+## Fast
+
+Performance is a priority.
+
+Every part of DLI Launcher is designed for:
+
+- Faster startup
+- Smooth interactions
+- Efficient resource usage
+- Reliable performance
+
+---
+
+## Beautiful
+
+Software is an experience.
+
+DLI Launcher focuses on:
+
+- Premium interfaces
+- Meaningful animations
+- Consistent design language
+- Modern user experience
+
+---
+
+# 🧠 Engineering Principles
+
+DLI Launcher follows modern software development principles:
+
+## Scalable Architecture
+
+Systems are designed to grow.
+
+From a launcher to a complete gaming platform.
+
+---
+
+## Security First
+
+Every connection and authentication flow is built with protection in mind.
+
+---
+
+## Maintainable Code
+
+Clean architecture and organized systems allow DLI to evolve faster.
+
+---
+
+# 📊 Project Status
+
+```
+DLI Launcher
+
+Development:
+████████░░  Active Development
+
+
+Core Systems:
+█████████░  Near Complete
+
+
+Platform:
+████░░░░░░  Expanding
+```
+
+---
+
+# 🏆 Why DLI?
+
+Most launchers only solve one problem:
+
+"Start Minecraft."
+
+DLI aims to solve a bigger problem:
+
+"Create a complete Minecraft experience."
+
+The difference:
+
+```
+Traditional Launcher
+
+Open → Launch → Play
+
+
+DLI Launcher
+
+Open
+
+ ↓
+
+Identity
+
+ ↓
+
+Experience
+
+ ↓
+
+Community
+
+ ↓
+
+Universe
+```
+
+---
+
+# 🔮 The Future
+
+The vision behind DLI is bigger than a launcher.
+
+The goal is to create a connected Minecraft platform where players can:
+
+- Build their identity
+- Discover new experiences
+- Connect with communities
+- Customize their journey
+- Create memories
+
+DLI is not just a product.
+
+It is a platform being built for the future of Minecraft.
+
+---
+
+# 💜 Final Message
+
+<p align="center">
+
+## Welcome to DLI.
+
+<br>
+
+A new generation of Minecraft experiences.
+
+<br>
+
+━━━━━━━━━━━━━━━━━━
+
+<br>
+
+**DLI Studios**
+
+<br>
+
+Premium Minecraft Experiences.
 
 </p>
