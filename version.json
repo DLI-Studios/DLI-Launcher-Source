@@ -1,7 +1,7 @@
 {
-  "version": "1.0.0",
-  "buildNumber": 1,
-  "downloadUrl": "https://github.com/DLI-Studios/DLI-Launcher-Source/releases/download/v1.0.0/DLI-Launcher.exe",
+  "version": "1.0.1",
+  "buildNumber": 2,
+  "downloadUrl": "https://github.com/DLI-Studios/DLI-Launcher-Source/releases/download/v1.0.1/DLI-Launcher.exe",
   "changelog": [
     "Initial release - DLI Launcher v1.0.0",
     "Discord OAuth & Email/Password login",
