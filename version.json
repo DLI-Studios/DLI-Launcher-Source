@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "buildNumber": 1,
+  "downloadUrl": "https://github.com/DLI-Studios/DLI-Launcher-Source/releases/download/v1.0.0/DLI-Launcher.exe",
+  "changelog": [
+    "Initial release - DLI Launcher v1.0.0",
+    "Discord OAuth & Email/Password login",
+    "Minecraft version management & launching",
+    "Profile page with avatar upload (email users)",
+    "Single-instance enforcement"
+  ],
+  "mandatory": false
+}
