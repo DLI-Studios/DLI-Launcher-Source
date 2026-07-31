@@ -1,7 +1,7 @@
 {
   "version": "1.0.3",
   "buildNumber": 3,
-  "downloadUrl": "https://github.com/DLI-Studios/DLI-Launcher-Source/releases/download/v1.0.3/DLI-Launcher-Update.zip",
+  "downloadUrl": "https://github.com/DLI-Studios/DLI-Launcher-Source/releases/download/v1.0.3/dli-update-1.0.3.zip",
   "changelog": [
     "Fixed single-file update mechanism",
     "Update now replaces EXE and frontend correctly",
