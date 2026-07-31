@@ -1,11 +1,11 @@
 {
-  "version": "1.0.5",
-  "buildNumber": 5,
-  "downloadUrl": "https://github.com/DLI-Studios/DLI-Launcher-Source/releases/download/v1.0.5/dli-update-1.0.5.zip",
+  "version": "1.0.6",
+  "buildNumber": 6,
+  "downloadUrl": "https://github.com/DLI-Studios/DLI-Launcher-Source/releases/download/v1.0.6/dli-update-1.0.6.zip",
   "changelog": [
+    "Manifest now served from release assets - no CDN cache issues",
     "Update loop fixed - EXE reports correct version after update",
-    "Updater batch file now uses UTF-8 (Turkish path support)",
-    "Frontend path diagnostics added"
+    "Updater batch file uses UTF-8 (Turkish path support)"
   ],
   "mandatory": false
 }
