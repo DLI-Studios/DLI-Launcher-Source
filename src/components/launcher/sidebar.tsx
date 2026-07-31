@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import {
   Home,
   Play,
@@ -13,6 +14,7 @@ import {
   Globe,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { launcherBridge } from '@/services/launcherBridge'
 
 const navItems = [
   { id: 'home', label: 'Home', icon: Home },
@@ -39,6 +41,17 @@ interface SidebarProps {
 }
 
 export function Sidebar({ activePage, onNavigate }: SidebarProps) {
+  const [appVersion, setAppVersion] = useState('1.0.0')
+
+  useEffect(() => {
+    launcherBridge.send('GET_VERSION').then((res) => {
+      const data = res.data as { version?: string } | null
+      if (res.success && data?.version) {
+        setAppVersion(data.version)
+      }
+    }).catch(() => {})
+  }, [])
+
   return (
     <aside className="flex h-full w-56 shrink-0 flex-col border-r border-sidebar-border bg-sidebar">
       <div className="flex flex-col items-start px-6 pt-7 pb-8">
@@ -96,7 +109,7 @@ export function Sidebar({ activePage, onNavigate }: SidebarProps) {
         ))}
       </div>
 
-      <p className="px-5 pb-4 text-xs text-muted-foreground">v1.0.0</p>
+      <p className="px-5 pb-4 text-xs text-muted-foreground">v{appVersion}</p>
     </aside>
   )
 }

@@ -89,6 +89,11 @@ class LauncherBridge {
           success: true,
           data: { status: 'launching', downloadSizeMb: 350 },
         }
+      case 'GET_VERSION':
+        return {
+          success: true,
+          data: { version: '1.0.1', buildNumber: 2 },
+        }
       case 'GET_PLAYER_INFO':
         return {
           success: true,
