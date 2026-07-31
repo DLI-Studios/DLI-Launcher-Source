@@ -1,11 +1,10 @@
 {
-  "version": "1.0.3",
-  "buildNumber": 3,
-  "downloadUrl": "https://github.com/DLI-Studios/DLI-Launcher-Source/releases/download/v1.0.3/dli-update-1.0.3.zip",
+  "version": "1.0.4",
+  "buildNumber": 4,
+  "downloadUrl": "https://github.com/DLI-Studios/DLI-Launcher-Source/releases/download/v1.0.4/dli-update-1.0.4.zip",
   "changelog": [
-    "Fixed single-file update mechanism",
-    "Update now replaces EXE and frontend correctly",
-    "Embedded ZIP removed - frontend loaded from folder next to EXE"
+    "Update mechanism now uses jsDelivr CDN manifest",
+    "Update replaces EXE and frontend correctly"
   ],
   "mandatory": false
 }
