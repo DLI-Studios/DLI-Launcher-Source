@@ -1,0 +1,173 @@
+﻿<UserControl x:Class="DLI.Connect.Views.RegisterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Grid.Background>
+            <StaticResource ResourceKey="AuthBackgroundGradientBrush" />
+        </Grid.Background>
+
+        <!-- Decorative glow -->
+        <Ellipse Width="560" Height="560" Opacity="0.08"
+                 HorizontalAlignment="Center" VerticalAlignment="Top"
+                 Margin="0,-280,0,0">
+            <Ellipse.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Color="#5865F2" Offset="0" />
+                    <GradientStop Color="#5865F2" Offset="1" />
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <Border Width="440" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,24"
+                    Style="{StaticResource CardStyle}" Padding="32,28">
+                <StackPanel>
+                    <Border Width="56" Height="56" CornerRadius="16" HorizontalAlignment="Center"
+                            Background="{DynamicResource LogoGradientBrush}" Effect="{StaticResource PrimaryGlow}">
+                        <TextBlock Text="DLI" Foreground="White" FontSize="15" FontWeight="Bold"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+
+                    <TextBlock Text="Hesap oluştur" FontSize="24" FontWeight="Bold"
+                               Foreground="{DynamicResource TextPrimaryBrush}"
+                               HorizontalAlignment="Center" Margin="0,18,0,0" />
+
+                    <TextBlock Text="Birkaç saniyede DLI Connect'e katıl." FontSize="13"
+                               Foreground="{DynamicResource TextSecondaryBrush}"
+                               HorizontalAlignment="Center" Margin="0,6,0,24" />
+
+                    <TextBlock Text="KULLANICI ADI" Style="{StaticResource LabelTextStyle}" Margin="0,0,0,6" />
+                    <Border Background="{DynamicResource SearchBrush}"
+                            BorderBrush="{DynamicResource DividerStrongBrush}" BorderThickness="1"
+                            CornerRadius="12" Height="44">
+                        <Grid>
+                            <TextBlock Text="&#xE77B;" FontFamily="Segoe MDL2 Assets" FontSize="13"
+                                       Foreground="{DynamicResource TextMutedBrush}"
+                                       Margin="14,0,0,0" VerticalAlignment="Center" />
+                            <TextBox x:Name="UsernameBox" Margin="38,0,12,0" Background="Transparent"
+                                     BorderThickness="0" Padding="0" FontSize="13"
+                                     VerticalContentAlignment="Center"
+                                     Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" />
+                        </Grid>
+                    </Border>
+
+                    <TextBlock Text="GÖRÜNEN AD" Style="{StaticResource LabelTextStyle}" Margin="0,14,0,6" />
+                    <Border Background="{DynamicResource SearchBrush}"
+                            BorderBrush="{DynamicResource DividerStrongBrush}" BorderThickness="1"
+                            CornerRadius="12" Height="44">
+                        <Grid>
+                            <TextBlock Text="&#xE8D4;" FontFamily="Segoe MDL2 Assets" FontSize="13"
+                                       Foreground="{DynamicResource TextMutedBrush}"
+                                       Margin="14,0,0,0" VerticalAlignment="Center" />
+                            <TextBox x:Name="DisplayNameBox" Margin="38,0,12,0" Background="Transparent"
+                                     BorderThickness="0" Padding="0" FontSize="13"
+                                     VerticalContentAlignment="Center"
+                                     Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}" />
+                        </Grid>
+                    </Border>
+
+                    <TextBlock Text="E-POSTA" Style="{StaticResource LabelTextStyle}" Margin="0,14,0,6" />
+                    <Border Background="{DynamicResource SearchBrush}"
+                            BorderBrush="{DynamicResource DividerStrongBrush}" BorderThickness="1"
+                            CornerRadius="12" Height="44">
+                        <Grid>
+                            <TextBlock Text="&#xE715;" FontFamily="Segoe MDL2 Assets" FontSize="13"
+                                       Foreground="{DynamicResource TextMutedBrush}"
+                                       Margin="14,0,0,0" VerticalAlignment="Center" />
+                            <TextBox x:Name="EmailBox" Margin="38,0,12,0" Background="Transparent"
+                                     BorderThickness="0" Padding="0" FontSize="13"
+                                     VerticalContentAlignment="Center"
+                                     Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" />
+                        </Grid>
+                    </Border>
+
+                    <TextBlock Text="ŞİFRE" Style="{StaticResource LabelTextStyle}" Margin="0,14,0,6" />
+                    <Border Background="{DynamicResource SearchBrush}"
+                            BorderBrush="{DynamicResource DividerStrongBrush}" BorderThickness="1"
+                            CornerRadius="12" Height="44">
+                        <Grid>
+                            <TextBlock Text="&#xE72E;" FontFamily="Segoe MDL2 Assets" FontSize="13"
+                                       Foreground="{DynamicResource TextMutedBrush}"
+                                       Margin="14,0,0,0" VerticalAlignment="Center" />
+                            <PasswordBox x:Name="PasswordBox" Margin="38,0,40,0" Background="Transparent"
+                                         BorderThickness="0" Padding="0" FontSize="13"
+                                         VerticalContentAlignment="Center" />
+                            <Button x:Name="PasswordToggle" Width="28" Height="28" Cursor="Hand"
+                                    HorizontalAlignment="Right" Margin="0,0,8,0" VerticalAlignment="Center"
+                                    Background="Transparent" BorderThickness="0">
+                                <TextBlock x:Name="PasswordToggleIcon" Text="&#xE7B3;"
+                                           FontFamily="Segoe MDL2 Assets" FontSize="13"
+                                           Foreground="{DynamicResource TextMutedBrush}" />
+                            </Button>
+                        </Grid>
+                    </Border>
+
+                    <TextBlock Text="ŞİFRE (TEKRAR)" Style="{StaticResource LabelTextStyle}" Margin="0,14,0,6" />
+                    <Border Background="{DynamicResource SearchBrush}"
+                            BorderBrush="{DynamicResource DividerStrongBrush}" BorderThickness="1"
+                            CornerRadius="12" Height="44">
+                        <Grid>
+                            <TextBlock Text="&#xE72E;" FontFamily="Segoe MDL2 Assets" FontSize="13"
+                                       Foreground="{DynamicResource TextMutedBrush}"
+                                       Margin="14,0,0,0" VerticalAlignment="Center" />
+                            <PasswordBox x:Name="ConfirmPasswordBox" Margin="38,0,40,0" Background="Transparent"
+                                         BorderThickness="0" Padding="0" FontSize="13"
+                                         VerticalContentAlignment="Center" />
+                            <Button x:Name="ConfirmPasswordToggle" Width="28" Height="28" Cursor="Hand"
+                                    HorizontalAlignment="Right" Margin="0,0,8,0" VerticalAlignment="Center"
+                                    Background="Transparent" BorderThickness="0">
+                                <TextBlock x:Name="ConfirmPasswordToggleIcon" Text="&#xE7B3;"
+                                           FontFamily="Segoe MDL2 Assets" FontSize="13"
+                                           Foreground="{DynamicResource TextMutedBrush}" />
+                            </Button>
+                        </Grid>
+                    </Border>
+
+                    <TextBlock Foreground="{DynamicResource DangerBrush}" FontSize="12"
+                               Margin="0,12,0,0" TextWrapping="Wrap"
+                               Text="{Binding ErrorMessage}">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Visible" />
+                                <Style.Triggers>
+                                    <Trigger Property="Text" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </Trigger>
+                                    <Trigger Property="Text" Value="">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+
+                    <Button Height="46" Margin="0,18,0,0" Style="{StaticResource PrimaryButtonStyle}"
+                            Command="{Binding RegisterCommand}" IsEnabled="{Binding IsIdle}">
+                        <Button.Content>
+                            <TextBlock>
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Text" Value="Hesap Oluştur" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsBusy}" Value="True">
+                                                <Setter Property="Text" Value="Hesap oluşturuluyor..." />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Button.Content>
+                    </Button>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,16,0,0">
+                        <TextBlock Text="Zaten hesabın var mı?" Style="{StaticResource MutedTextStyle}" VerticalAlignment="Center" />
+                        <Button Content="Giriş yap" Margin="6,0,0,0"
+                                Style="{StaticResource LinkButtonStyle}"
+                                Command="{Binding GoToLoginCommand}" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
+

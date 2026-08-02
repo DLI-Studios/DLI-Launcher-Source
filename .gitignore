@@ -1,0 +1,40 @@
+# Build outputs
+**/bin/
+**/obj/
+**/publish/
+**/dist/
+**/build/
+**/out/
+
+# Node
+node_modules/
+*.log
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# User files
+*.user
+*.suo
+*.userprefs
+
+# Temp
+*.tmp
+*.temp
+temp/
+
+# Launcher specific
+*.pdb
+*.exe
+*.dll
+
+# Installer output
+installer/output/

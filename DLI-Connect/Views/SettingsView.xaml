@@ -1,0 +1,364 @@
+<UserControl x:Class="DLI.Connect.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:utilities="clr-namespace:DLI.Connect.Utilities"
+             xmlns:viewmodels="clr-namespace:DLI.Connect.ViewModels">
+    <UserControl.Resources>
+        <utilities:BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <utilities:InverseBooleanToVisibilityConverter x:Key="InvBoolToVis" />
+        <utilities:StringToImageSourceConverter x:Key="StrToImg" />
+        <utilities:HasAvatarToVisibilityConverter x:Key="HasAvatarVis" />
+        <utilities:InverseHasAvatarToVisibilityConverter x:Key="InvHasAvatarVis" />
+    </UserControl.Resources>
+
+    <Grid Margin="32,28,32,28">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <TextBlock Text="Ayarlar" Style="{StaticResource SectionTitleStyle}" />
+            <TextBlock Text="Hesap, görünüm ve bildirim tercihlerini yönet."
+                       Style="{StaticResource MutedTextStyle}" Margin="0,4,0,0" />
+
+            <!-- Search -->
+            <Border Background="{DynamicResource SearchBrush}" CornerRadius="8" Margin="0,16,0,0" Height="38">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="&#xE721;" FontFamily="Segoe MDL2 Assets" FontSize="14"
+                               Foreground="{DynamicResource TextMutedBrush}" Margin="12,0,8,0"
+                               VerticalAlignment="Center" />
+                    <TextBox Grid.Column="1" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                             BorderThickness="0" Background="Transparent"
+                             VerticalContentAlignment="Center" FontSize="12" />
+                </Grid>
+            </Border>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="240" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Categories -->
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl ItemsSource="{Binding AllCategories}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Margin="0,0,0,2" HorizontalContentAlignment="Stretch"
+                                    Command="{Binding DataContext.SelectCategoryCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                    CommandParameter="{Binding Category}">
+                                <Button.Style>
+                                    <Style TargetType="Button" BasedOn="{StaticResource NavItemButtonStyle}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding DataContext.SelectedCategory, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                         Value="{x:Static viewmodels:SettingsCategory.General}">
+                                                <Setter Property="Background" Value="{DynamicResource NavActiveBrush}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                                    <TextBlock Text="{Binding Icon}" FontFamily="Segoe MDL2 Assets" FontSize="13"
+                                               Foreground="{DynamicResource TextMutedBrush}" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding Title}" FontSize="12" FontWeight="SemiBold"
+                                               Foreground="{DynamicResource TextSecondaryBrush}" Margin="10,0,0,0"
+                                               VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+
+            <!-- Content -->
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <StackPanel Margin="16,0,0,0">
+                    <TextBlock Text="{Binding SuccessMessage}" Foreground="{DynamicResource SuccessBrush}" FontSize="12"
+                               Margin="0,0,0,6" TextWrapping="Wrap" />
+                    <TextBlock Text="{Binding ErrorMessage}" Foreground="{DynamicResource DangerBrush}" FontSize="12"
+                               Margin="0,0,0,6" TextWrapping="Wrap" />
+
+                    <!-- General -->
+                    <Border Style="{StaticResource CardStyle}" Padding="24,20" Visibility="{Binding IsGeneral, Converter={StaticResource BoolToVis}}">
+                        <StackPanel>
+                            <TextBlock Text="Genel" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource TextPrimaryBrush}" />
+                            <TextBlock Text="DLI Connect hesap özetin." Style="{StaticResource MutedTextStyle}" Margin="0,4,0,0" />
+
+                            <Grid Margin="0,20,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Border Width="56" Height="56" CornerRadius="28" VerticalAlignment="Top"
+                                        Background="{DynamicResource LogoGradientBrush}">
+                                    <Grid>
+                                        <Image Source="{Binding AvatarUrl, Converter={StaticResource StrToImg}}"
+                                               Visibility="{Binding HasAvatar, Converter={StaticResource HasAvatarVis}}"
+                                               Stretch="UniformToFill" />
+                                        <TextBlock Text="{Binding Initial}" FontSize="22" FontWeight="Bold"
+                                                   Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                   Visibility="{Binding HasAvatar, Converter={StaticResource InvHasAvatarVis}}" />
+                                    </Grid>
+                                </Border>
+                                <StackPanel Grid.Column="1" Margin="16,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding DisplayName}" FontSize="16" FontWeight="SemiBold"
+                                               Foreground="{DynamicResource TextPrimaryBrush}" />
+                                    <TextBlock Text="{Binding Username}" FontSize="12"
+                                               Foreground="{DynamicResource AccentBrush}" Margin="0,2,0,0" />
+                                    <TextBlock Text="{Binding Email}" FontSize="12"
+                                               Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,2,0,0" />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Account -->
+                    <Border Style="{StaticResource CardStyle}" Padding="24,20" Margin="0,12,0,0"
+                            Visibility="{Binding IsAccount, Converter={StaticResource BoolToVis}}">
+                        <StackPanel>
+                            <TextBlock Text="Hesap" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource TextPrimaryBrush}" />
+                            <TextBlock Text="Şifreni değiştir veya hesabından çık." Style="{StaticResource MutedTextStyle}" Margin="0,4,0,0" />
+
+                            <TextBlock Text="ŞİFRE DEĞİŞTİR" Style="{StaticResource NavSectionHeaderStyle}" Margin="0,20,0,0" />
+
+                            <TextBlock Text="Mevcut şifre" Style="{StaticResource LabelTextStyle}" Margin="0,12,0,0" />
+                            <PasswordBox x:Name="CurrentPasswordBox" Width="320" HorizontalAlignment="Left" Margin="0,6,0,0"
+                                         PasswordChanged="OnCurrentPasswordChanged" />
+
+                            <TextBlock Text="Yeni şifre" Style="{StaticResource LabelTextStyle}" Margin="0,12,0,0" />
+                            <PasswordBox x:Name="NewPasswordBox" Width="320" HorizontalAlignment="Left" Margin="0,6,0,0"
+                                         PasswordChanged="OnNewPasswordChanged" />
+
+                            <TextBlock Text="Yeni şifre (tekrar)" Style="{StaticResource LabelTextStyle}" Margin="0,12,0,0" />
+                            <PasswordBox x:Name="ConfirmPasswordBox" Width="320" HorizontalAlignment="Left" Margin="0,6,0,0"
+                                         PasswordChanged="OnConfirmPasswordChanged" />
+
+                            <Button Content="Şifreyi Değiştir" Style="{StaticResource PrimaryButtonStyle}"
+                                    Padding="18,10" Margin="0,16,0,0" HorizontalAlignment="Left"
+                                    Command="{Binding ChangePasswordCommand}" IsEnabled="{Binding IsIdle}" />
+
+                            <Border Height="1" Background="{DynamicResource DividerBrush}" Margin="0,24,0,0" />
+
+                            <TextBlock Text="OTURUM" Style="{StaticResource NavSectionHeaderStyle}" Margin="0,0,0,8" />
+                            <Button Content="Çıkış Yap" Style="{StaticResource SecondaryButtonStyle}"
+                                    Padding="18,10" HorizontalAlignment="Left"
+                                    Command="{Binding LogoutCommand}" IsEnabled="{Binding IsIdle}" />
+
+                            <Border Height="1" Background="{DynamicResource DividerBrush}" Margin="0,24,0,0" />
+
+                            <TextBlock Text="TEHLİKELİ BÖLGE" Style="{StaticResource NavSectionHeaderStyle}" Margin="0,0,0,8" />
+                            <Button Content="Hesabı Sil" Style="{StaticResource DangerButtonStyle}"
+                                    Padding="18,10" HorizontalAlignment="Left"
+                                    Command="{Binding OpenDeleteConfirmCommand}" IsEnabled="{Binding IsIdle}" />
+
+                            <StackPanel Visibility="{Binding IsDeleteConfirmOpen, Converter={StaticResource BoolToVis}}"
+                                        Margin="0,16,0,0">
+                                <Border Background="{DynamicResource GlassCardBrush}" BorderBrush="{DynamicResource DangerBrush}"
+                                        BorderThickness="1" CornerRadius="10" Padding="16">
+                                    <StackPanel>
+                                        <TextBlock Text="Hesabını silmek istediğine emin misin?" FontSize="13" FontWeight="SemiBold"
+                                                   Foreground="{DynamicResource TextPrimaryBrush}" TextWrapping="Wrap" />
+                                        <TextBlock Text="Bu işlem geri alınamaz. Tüm verilerin kalıcı olarak silinir."
+                                                   FontSize="12" Foreground="{DynamicResource TextSecondaryBrush}"
+                                                   Margin="0,4,0,0" TextWrapping="Wrap" />
+                                        <StackPanel Orientation="Horizontal" Margin="0,12,0,0">
+                                            <Button Content="Evet, Sil" Style="{StaticResource DangerButtonStyle}" Padding="14,8"
+                                                    Command="{Binding ConfirmDeleteAccountCommand}" IsEnabled="{Binding IsIdle}" />
+                                            <Button Content="Vazgeç" Style="{StaticResource GhostButtonStyle}" Padding="14,8"
+                                                    Margin="8,0,0,0" Command="{Binding CancelDeleteConfirmCommand}" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Appearance -->
+                    <Border Style="{StaticResource CardStyle}" Padding="24,20" Margin="0,12,0,0"
+                            Visibility="{Binding IsAppearance, Converter={StaticResource BoolToVis}}">
+                        <StackPanel>
+                            <TextBlock Text="Görünüm" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource TextPrimaryBrush}" />
+                            <TextBlock Text="Tema tercihini seç. Değişiklik anında uygulanır."
+                                       Style="{StaticResource MutedTextStyle}" Margin="0,4,0,0" />
+
+                            <TextBlock Text="TEMA" Style="{StaticResource NavSectionHeaderStyle}" Margin="0,20,0,0" />
+                            <TextBlock Text="{Binding ThemeText}" FontSize="12" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,4,0,0" />
+
+                            <WrapPanel Margin="0,12,0,0">
+                                <Button Content="Koyu" Command="{Binding ApplyThemeCommand}" CommandParameter="dark"
+                                        Margin="0,0,8,0" Padding="18,10">
+                                    <Button.Style>
+                                        <Style TargetType="Button" BasedOn="{StaticResource ThemeOptionButtonStyle}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ThemeText}" Value="Koyu">
+                                                    <Setter Property="Background" Value="{DynamicResource PrimaryGradientBrush}" />
+                                                    <Setter Property="Foreground" Value="White" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                                <Button Content="Açık" Command="{Binding ApplyThemeCommand}" CommandParameter="light"
+                                        Margin="0,0,8,0" Padding="18,10">
+                                    <Button.Style>
+                                        <Style TargetType="Button" BasedOn="{StaticResource ThemeOptionButtonStyle}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ThemeText}" Value="Açık">
+                                                    <Setter Property="Background" Value="{DynamicResource PrimaryGradientBrush}" />
+                                                    <Setter Property="Foreground" Value="White" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                                <Button Content="Sistem" Command="{Binding ApplyThemeCommand}" CommandParameter="system"
+                                        Padding="18,10">
+                                    <Button.Style>
+                                        <Style TargetType="Button" BasedOn="{StaticResource ThemeOptionButtonStyle}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ThemeText}" Value="Sistem">
+                                                    <Setter Property="Background" Value="{DynamicResource PrimaryGradientBrush}" />
+                                                    <Setter Property="Foreground" Value="White" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </WrapPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Notifications -->
+                    <Border Style="{StaticResource CardStyle}" Padding="24,20" Margin="0,12,0,0"
+                            Visibility="{Binding IsNotifications, Converter={StaticResource BoolToVis}}">
+                        <StackPanel>
+                            <TextBlock Text="Bildirimler" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource TextPrimaryBrush}" />
+                            <TextBlock Text="Hangi bildirimleri almak istediğini seç."
+                                       Style="{StaticResource MutedTextStyle}" Margin="0,4,0,0" />
+
+                            <CheckBox Content="Bildirimleri etkinleştir" IsChecked="{Binding NotifEnabled}"
+                                      Margin="0,20,0,0" />
+                            <CheckBox Content="Arkadaşlık istekleri" IsChecked="{Binding NotifFriendRequests}"
+                                      Margin="0,12,0,0" />
+                            <CheckBox Content="Yeni mesajlar" IsChecked="{Binding NotifMessages}"
+                                      Margin="0,12,0,0" />
+                            <CheckBox Content="Parti davetleri" IsChecked="{Binding NotifPartyInvites}"
+                                      Margin="0,12,0,0" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Privacy -->
+                    <Border Style="{StaticResource CardStyle}" Padding="24,20" Margin="0,12,0,0"
+                            Visibility="{Binding IsPrivacy, Converter={StaticResource BoolToVis}}">
+                        <StackPanel>
+                            <TextBlock Text="Gizlilik" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource TextPrimaryBrush}" />
+                            <TextBlock Text="Çevrimiçi durumunu ve etkinliğini kimlerin görebileceğini yönet."
+                                       Style="{StaticResource MutedTextStyle}" Margin="0,4,0,0" />
+
+                            <TextBlock Text="ARKADAŞLIK İSTEKLERİ" Style="{StaticResource NavSectionHeaderStyle}" Margin="0,20,0,0" />
+                            <ComboBox SelectedValue="{Binding PrivacyFriendRequests, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      SelectedValuePath="Tag" Width="320" HorizontalAlignment="Left" Margin="0,8,0,0">
+                                <ComboBoxItem Content="Herkes" Tag="everyone" />
+                                <ComboBoxItem Content="Arkadaşlarım" Tag="friends" />
+                                <ComboBoxItem Content="Kimse" Tag="nobody" />
+                            </ComboBox>
+
+                            <TextBlock Text="ÇEVİRİMİÇİ DURUMU" Style="{StaticResource NavSectionHeaderStyle}" Margin="0,20,0,0" />
+                            <CheckBox Content="Çevrimiçi durumumu göster" IsChecked="{Binding PrivacyShowStatus}"
+                                      Margin="0,8,0,0" />
+
+                            <TextBlock Text="ETKİNLİK" Style="{StaticResource NavSectionHeaderStyle}" Margin="0,20,0,0" />
+                            <CheckBox Content="Etkinliğimi göster (oynadığım oyun vb.)" IsChecked="{Binding PrivacyShowActivity}"
+                                      Margin="0,8,0,0" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Audio -->
+                    <Border Style="{StaticResource CardStyle}" Padding="24,20" Margin="0,12,0,0"
+                            Visibility="{Binding IsAudio, Converter={StaticResource BoolToVis}}">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Ses" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource TextPrimaryBrush}"
+                                           VerticalAlignment="Center" />
+                                <Button Content="Yenile" Style="{StaticResource GhostButtonStyle}" Padding="12,6"
+                                        Margin="12,0,0,0" Command="{Binding RefreshAudioDevicesCommand}" />
+                            </StackPanel>
+                            <TextBlock Text="Mikrofon, hoparlör ve ses işleme tercihlerini yönet."
+                                       Style="{StaticResource MutedTextStyle}" Margin="0,4,0,0" />
+
+                            <TextBlock Text="CIHAZLAR" Style="{StaticResource NavSectionHeaderStyle}" Margin="0,20,0,0" />
+                            <TextBlock Text="Mikrofon" Style="{StaticResource LabelTextStyle}" Margin="0,12,0,0" />
+                            <ComboBox ItemsSource="{Binding InputDevices}"
+                                      SelectedItem="{Binding SelectedInputDevice, Mode=TwoWay}"
+                                      Width="360" HorizontalAlignment="Left" Margin="0,6,0,0" />
+
+                            <TextBlock Text="Hoparlör" Style="{StaticResource LabelTextStyle}" Margin="0,16,0,0" />
+                            <ComboBox ItemsSource="{Binding OutputDevices}"
+                                      SelectedItem="{Binding SelectedOutputDevice, Mode=TwoWay}"
+                                      Width="360" HorizontalAlignment="Left" Margin="0,6,0,0" />
+
+                            <TextBlock Text="GİRİŞ SEVİYESİ" Style="{StaticResource NavSectionHeaderStyle}" Margin="0,24,0,0" />
+                            <TextBlock Text="Mikrofon ses seviyesi" Style="{StaticResource LabelTextStyle}" Margin="0,12,0,0" />
+                            <Slider Minimum="0" Maximum="1" Value="{Binding InputVolume, Mode=TwoWay}"
+                                    Width="360" HorizontalAlignment="Left" Margin="0,6,0,0" />
+                            <TextBlock Text="{Binding InputVolume, StringFormat={}{0:P0}}" FontSize="11"
+                                       Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,2,0,0" />
+
+                            <TextBlock Text="ÇIKIŞ SEVİYESİ" Style="{StaticResource NavSectionHeaderStyle}" Margin="0,24,0,0" />
+                            <TextBlock Text="Hoparlör ses seviyesi" Style="{StaticResource LabelTextStyle}" Margin="0,12,0,0" />
+                            <Slider Minimum="0" Maximum="1" Value="{Binding OutputVolume, Mode=TwoWay}"
+                                    Width="360" HorizontalAlignment="Left" Margin="0,6,0,0" />
+                            <TextBlock Text="{Binding OutputVolume, StringFormat={}{0:P0}}" FontSize="11"
+                                       Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,2,0,0" />
+
+                            <TextBlock Text="AKTİVASYON" Style="{StaticResource NavSectionHeaderStyle}" Margin="0,24,0,0" />
+                            <CheckBox Content="Push to Talk kullan" IsChecked="{Binding UsePushToTalk}" Margin="0,8,0,0" />
+                            <StackPanel Orientation="Horizontal" Margin="0,12,0,0"
+                                        IsEnabled="{Binding UsePushToTalk}">
+                                <TextBlock Text="Konuşma tuşu" Style="{StaticResource LabelTextStyle}"
+                                           VerticalAlignment="Center" Margin="0,0,12,0" />
+                                <TextBox Text="{Binding PushToTalkKey}"
+                                         PreviewKeyDown="PushToTalkKeyBox_PreviewKeyDown"
+                                         Width="120" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                         ToolTip="Ayarlamak için kutuya tıklayıp bir tuşa basın." />
+                            </StackPanel>
+                            <TextBlock Text="Ayarlamak için kutuya tıklayıp bir tuşa basın. Basılı tutarken konuşursunuz."
+                                       FontSize="11" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,4,0,0" />
+                            <TextBlock Text="Ses aktivasyonu eşiği" Style="{StaticResource LabelTextStyle}" Margin="0,16,0,0" />
+                            <Slider Minimum="0.05" Maximum="0.9" Value="{Binding VoiceActivityThreshold, Mode=TwoWay}"
+                                    Width="360" HorizontalAlignment="Left" Margin="0,6,0,0" />
+                            <TextBlock Text="Konuşma algılama hassasiyeti: {Binding VoiceActivityThreshold, StringFormat={}{0:P0}}"
+                                       FontSize="11" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,2,0,0" />
+
+                            <TextBlock Text="SES İŞLEME" Style="{StaticResource NavSectionHeaderStyle}" Margin="0,24,0,0" />
+                            <CheckBox Content="Gürültü azaltma" IsChecked="{Binding NoiseSuppression}" Margin="0,8,0,0" />
+                            <CheckBox Content="Eko iptali" IsChecked="{Binding EchoCancellation}" Margin="0,12,0,0" />
+                            <CheckBox Content="Otomatik kazanç kontrolü" IsChecked="{Binding AutomaticGainControl}" Margin="0,12,0,0" />
+
+                            <Border Height="1" Background="{DynamicResource DividerBrush}" Margin="0,24,0,0" />
+                            <Button Content="Varsayılanları Sıfırla" Style="{StaticResource SecondaryButtonStyle}"
+                                    Padding="18,10" Margin="0,16,0,0" HorizontalAlignment="Left"
+                                    Command="{Binding ResetAudioDefaultsCommand}" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Advanced -->
+                    <Border Style="{StaticResource CardStyle}" Padding="24,20" Margin="0,12,0,0"
+                            Visibility="{Binding IsAdvanced, Converter={StaticResource BoolToVis}}">
+                        <StackPanel>
+                            <TextBlock Text="Gelişmiş" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource TextPrimaryBrush}" />
+                            <TextBlock Text="Gelişmiş seçenekler yakında kullanıma sunulacak."
+                                       Style="{StaticResource MutedTextStyle}" Margin="0,4,0,0" />
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

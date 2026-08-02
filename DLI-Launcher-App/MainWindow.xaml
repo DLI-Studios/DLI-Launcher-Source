@@ -1,0 +1,53 @@
+<Window x:Class="DLI_Launcher_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:webview="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        mc:Ignorable="d"
+        Title="DLI Launcher"
+        Icon="DLI-Launcher.ico"
+        Height="800" Width="1280"
+        MinHeight="600" MinWidth="900"
+        WindowStartupLocation="CenterScreen"
+        Background="#13111C"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Custom Titlebar -->
+        <Border Grid.Row="0" Background="#13111C" MouseLeftButtonDown="Titlebar_MouseLeftButtonDown">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Logo -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Margin="12,0,0,0">
+                    <TextBlock Text="DLI" Foreground="#C084FC" FontSize="14" FontWeight="Black" FontStyle="Italic"/>
+                    <TextBlock Text=" Launcher" Foreground="#888" FontSize="10" VerticalAlignment="Bottom" Margin="4,0,0,2"/>
+                </StackPanel>
+
+                <!-- Window buttons -->
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <Button Content="—" Width="46" Height="32" Background="Transparent" Foreground="#888"
+                            BorderThickness="0" Click="Minimize_Click" FontSize="12"/>
+                    <Button Content="☐" Width="46" Height="32" Background="Transparent" Foreground="#888"
+                            BorderThickness="0" Click="Maximize_Click" FontSize="12"/>
+                    <Button Content="✕" Width="46" Height="32" Background="Transparent" Foreground="#888"
+                            BorderThickness="0" Click="Close_Click" FontSize="12"
+                            MouseEnter="CloseBtn_MouseEnter" MouseLeave="CloseBtn_MouseLeave"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- WebView2 -->
+        <webview:WebView2 Grid.Row="1" x:Name="webView" />
+    </Grid>
+</Window>

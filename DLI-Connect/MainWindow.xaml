@@ -1,0 +1,90 @@
+﻿<Window x:Class="DLI.Connect.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewmodels="clr-namespace:DLI.Connect.ViewModels"
+        xmlns:views="clr-namespace:DLI.Connect.Views"
+        Title="DLI Connect"
+        Width="1280" Height="760"
+        MinWidth="1024" MinHeight="660"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="CanResize"
+        FontFamily="Segoe UI"
+        PreviewKeyDown="Window_PreviewKeyDown"
+        PreviewKeyUp="Window_PreviewKeyUp"
+        Deactivated="Window_Deactivated">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
+            <views:LoginView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:RegisterViewModel}">
+            <views:RegisterView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:ForgotPasswordViewModel}">
+            <views:ForgotPasswordView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:VerifyEmailViewModel}">
+            <views:VerifyEmailView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
+            <views:HomeView />
+        </DataTemplate>
+    </Window.Resources>
+
+    <Border x:Name="WindowRoot"
+            Background="{DynamicResource BackgroundBrush}"
+            BorderBrush="#1E1F22"
+            BorderThickness="1"
+            CornerRadius="12"
+            SnapsToDevicePixels="True">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Title bar -->
+            <Border x:Name="TitleBar" Grid.Row="0" Height="36" Background="{DynamicResource ServerRailBrush}"
+                    CornerRadius="11,11,0,0" BorderBrush="{DynamicResource DividerBrush}" BorderThickness="0,0,0,1"
+                    MouseLeftButtonDown="TitleBar_OnMouseLeftButtonDown">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="14,0,0,0">
+                        <Border Width="20" Height="20" CornerRadius="6"
+                                Background="{DynamicResource LogoGradientBrush}">
+                            <TextBlock Text="DLI" Foreground="White" FontSize="7" FontWeight="Bold"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <TextBlock Text="DLI Connect" FontSize="12.5" FontWeight="SemiBold"
+                                   Foreground="{DynamicResource TextPrimaryBrush}" Margin="10,0,0,0" VerticalAlignment="Center" />
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <Button x:Name="MinimizeButton" Style="{StaticResource TitleBarButtonStyle}"
+                                Command="{Binding MinimizeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+                            <TextBlock Text="&#xE921;" FontFamily="Segoe MDL2 Assets" FontSize="10" />
+                        </Button>
+                        <Button x:Name="MaximizeButton" Style="{StaticResource TitleBarButtonStyle}"
+                                Command="{Binding MaximizeRestoreCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+                            <TextBlock Text="&#xE922;" FontFamily="Segoe MDL2 Assets" FontSize="10" />
+                        </Button>
+                        <Button x:Name="CloseButton" Style="{StaticResource TitleBarCloseButtonStyle}"
+                                Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+                            <TextBlock Text="&#xE8BB;" FontFamily="Segoe MDL2 Assets" FontSize="10" Foreground="{DynamicResource TextSecondaryBrush}" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Page host -->
+            <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}" />
+        </Grid>
+    </Border>
+</Window>
+

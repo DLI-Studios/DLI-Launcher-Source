@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <RootNamespace>DLI_Launcher_App</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+
+    <AssemblyName>DLI-Launcher</AssemblyName>
+    <Version>1.0.0</Version>
+    <Authors>DLI Team</Authors>
+    <Description>DLI Gaming Platform - Premium Minecraft Experience</Description>
+
+    <!-- Single File Self-Contained Settings -->
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <ApplicationIcon>DLI-Launcher.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="DLI-Launcher.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CmlLib.Core" Version="4.0.6" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4078.44" />
+  </ItemGroup>
+
+  <!-- Copy frontend dist to output -->
+  <Target Name="CopyFrontendDist" AfterTargets="Build">
+    <ItemGroup>
+      <FrontendDist Include="..\launcher\dist\**" />
+    </ItemGroup>
+    <Copy SourceFiles="@(FrontendDist)" DestinationFolder="$(OutDir)\DLI-Launcher\%(RecursiveDir)" SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="CopyFrontendDistPublish" AfterTargets="Publish">
+    <ItemGroup>
+      <FrontendDist Include="..\launcher\dist\**" />
+    </ItemGroup>
+    <Copy SourceFiles="@(FrontendDist)" DestinationFolder="$(PublishDir)\DLI-Launcher\%(RecursiveDir)" SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>
