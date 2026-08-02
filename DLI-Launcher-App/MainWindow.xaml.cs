@@ -23,6 +23,23 @@ public partial class MainWindow : Window
     private MinecraftLauncher? _minecraftLauncher;
     private List<string>? _cachedVersions;
     private List<(string Name, DateTime ReleaseTime)>? _cachedVersionData;
+    private List<VersionInfo>? _cachedVersionInfos;
+
+    public class VersionInfo
+    {
+        public string id { get; set; } = "";
+        public string category { get; set; } = "vanilla";
+        public string releaseTime { get; set; } = "";
+        public bool installed { get; set; } = false;
+        public string type { get; set; } = "";
+    }
+
+    private static string GetMinecraftDirectory()
+    {
+        return Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            ".minecraft");
+    }
     private HttpListener? _oauthListener;
     private string? _pkceVerifier;
     private string _discordUsername = "DeliPlayer";
@@ -30,7 +47,7 @@ public partial class MainWindow : Window
     private const string DiscordClientSecret = "YeRCIBJnAFZ_uPJY3IKwkCEF16v2WjT0";
     private const string DiscordRedirectUri = "http://localhost:28482/callback";
 
-    private const string CurrentAppVersion = "1.0.8";
+    private const string CurrentAppVersion = "1.1.0";
     private const string UpdateManifestUrl = "https://github.com/DLI-Studios/DLI-Launcher-Source/releases/latest/download/version.json";
     private UpdateManifestInfo? _cachedUpdateInfo;
 
@@ -110,6 +127,7 @@ public partial class MainWindow : Window
             }
 
             // CmlLib launcher'ı başlat - sürümleri arka planda yükle
+            EnsureLauncherProfile();
             _ = LoadVersionsAsync();
 
             // Discord OAuth callback listener baslat
@@ -266,6 +284,8 @@ public partial class MainWindow : Window
                     Process.Start(new ProcessStartInfo(modsPath) { UseShellExecute = true });
                 });
                 return null;
+            case "INSTALL_LOADER":
+                return HandleInstallLoader(payload);
             default:
                 return null;
         }
@@ -274,16 +294,30 @@ public partial class MainWindow : Window
     private object HandleGetVersions()
     {
         // CmlLib'den yüklüyse release tarihine göre sırala
-        if (_cachedVersionData != null && _cachedVersionData.Count > 0)
+        if (_cachedVersionInfos != null && _cachedVersionInfos.Count > 0)
         {
-            var sorted = _cachedVersionData
-                .OrderByDescending(x => x.ReleaseTime)
-                .Select(x => x.Name)
+            var sorted = _cachedVersionInfos
+                .OrderByDescending(x => x.releaseTime)
+                .Select(x => x.id)
                 .ToList();
 
             return new
             {
                 versions = sorted,
+                categories = _cachedVersionInfos
+                    .GroupBy(x => x.category)
+                    .ToDictionary(g => g.Key, g => g.Select(x => x.id).ToList()),
+                installed = _cachedVersionInfos
+                    .Where(x => x.installed || x.type == "local")
+                    .Select(x => x.id)
+                    .ToList(),
+                items = _cachedVersionInfos.Select(x => new
+                {
+                    id = x.id,
+                    category = x.category,
+                    releaseTime = x.releaseTime,
+                    installed = x.installed
+                }).ToList(),
                 source = "cmllib",
                 count = sorted.Count
             };
@@ -630,6 +664,100 @@ rmdir /s /q ""{tempPath}""
         };
     }
 
+    private object? HandleInstallLoader(JsonElement? payload)
+    {
+        var loader = payload?.TryGetProperty("loader", out var l) == true ? l.GetString() : null;
+        var mcVersion = payload?.TryGetProperty("minecraftVersion", out var mv) == true ? mv.GetString() : null;
+        var loaderVersion = payload?.TryGetProperty("loaderVersion", out var lv) == true ? lv.GetString() : null;
+
+        if (string.IsNullOrEmpty(loader) || string.IsNullOrEmpty(mcVersion))
+        {
+            return new { status = "error", error = "Loader veya minecraftVersion eksik" };
+        }
+
+        var normalized = loader.ToLowerInvariant();
+        if (normalized is not ("forge" or "neoforge" or "fabric"))
+        {
+            return new { status = "error", error = $"Desteklenmeyen loader: {loader}" };
+        }
+
+        SendBridgeEvent("LOADER_INSTALL_STATUS", new { status = "starting", loader, minecraftVersion = mcVersion, progress = 0 });
+
+        _ = Task.Run(async () =>
+        {
+            try
+            {
+                if (_minecraftLauncher == null)
+                    _minecraftLauncher = new MinecraftLauncher();
+
+                SendBridgeEvent("LOADER_INSTALL_STATUS", new { status = "fetching", loader, minecraftVersion = mcVersion, progress = 5 });
+                Debug.WriteLine($"[DLI] Installing {loader} for Minecraft {mcVersion}...");
+
+                string versionName;
+                switch (normalized)
+                {
+                    case "forge":
+                    {
+                        var forgeInstaller = new CmlLib.Core.Installer.Forge.ForgeInstaller(_minecraftLauncher);
+                        var options = new CmlLib.Core.Installer.Forge.ForgeInstallOptions();
+                        if (string.IsNullOrEmpty(loaderVersion))
+                            versionName = await forgeInstaller.Install(mcVersion, options);
+                        else
+                            versionName = await forgeInstaller.Install(mcVersion, loaderVersion, options);
+                        break;
+                    }
+                    case "neoforge":
+                    {
+                        var neoForgeInstaller = new CmlLib.Core.Installer.NeoForge.NeoForgeInstaller(_minecraftLauncher);
+                        var options = new CmlLib.Core.Installer.NeoForge.Installers.NeoForgeInstallOptions();
+                        if (string.IsNullOrEmpty(loaderVersion))
+                            versionName = await neoForgeInstaller.Install(mcVersion, options);
+                        else
+                            versionName = await neoForgeInstaller.Install(mcVersion, loaderVersion, options);
+                        break;
+                    }
+                    case "fabric":
+                    {
+                        var path = new CmlLib.Core.MinecraftPath();
+                        var fabricInstaller = new CmlLib.Core.ModLoaders.FabricMC.FabricInstaller(new HttpClient());
+                        if (string.IsNullOrEmpty(loaderVersion))
+                            versionName = await fabricInstaller.Install(mcVersion, path);
+                        else
+                            versionName = await fabricInstaller.Install(mcVersion, loaderVersion, path);
+                        break;
+                    }
+                    default:
+                        SendBridgeEvent("LOADER_INSTALL_STATUS", new { status = "error", loader, error = $"Desteklenmeyen loader: {loader}" });
+                        return;
+                }
+
+                Debug.WriteLine($"[DLI] Loader version {versionName} resolved, installing files...");
+                SendBridgeEvent("LOADER_INSTALL_STATUS", new { status = "installing", loader, minecraftVersion = mcVersion, versionName, progress = 20 });
+
+                await _minecraftLauncher.InstallAsync(versionName);
+
+                EnsureLauncherProfile();
+                await LoadVersionsAsync();
+
+                SendBridgeEvent("LOADER_INSTALL_STATUS", new { status = "done", loader, minecraftVersion = mcVersion, versionName, progress = 100 });
+                SendBridgeEvent("VERSIONS_REFRESHED", new { });
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[DLI] Loader install error: {ex.Message}");
+                SendBridgeEvent("LOADER_INSTALL_STATUS", new { status = "error", loader, minecraftVersion = mcVersion, error = ex.Message });
+            }
+        });
+
+        return new { status = "started", loader, minecraftVersion = mcVersion };
+    }
+
+    private void SendBridgeEvent(string type, object data)
+    {
+        SendUpdateMessage(type, data);
+    }
+
+
     /// <summary>
     /// Kullanıcının ayarlarını oyun başlamadan önce %appdata%\.minecraft\options.txt dosyasına yazar.
     /// Böylece Minecraft bu ayarları gerçekten uygular (render distance, FPS limit, grafikler vb.).
@@ -732,6 +860,52 @@ rmdir /s /q ""{tempPath}""
         return 60; // 1.0, 1.1
     }
 
+    private static void EnsureLauncherProfile()
+    {
+        try
+        {
+            var mcDir = GetMinecraftDirectory();
+            Directory.CreateDirectory(mcDir);
+            var profilePath = Path.Combine(mcDir, "launcher_profiles.json");
+            if (!File.Exists(profilePath))
+            {
+                var profile = new
+                {
+                    profiles = new Dictionary<string, object>(),
+                    selectedProfileName = "",
+                    clientToken = Guid.NewGuid().ToString(),
+                    launcherVersion = new
+                    {
+                        name = "DLI Launcher",
+                        format = 21,
+                        profilesFormat = 2
+                    }
+                };
+                File.WriteAllText(profilePath, JsonSerializer.Serialize(profile, new JsonSerializerOptions { WriteIndented = true }));
+                Debug.WriteLine($"[DLI] launcher_profiles.json created at {profilePath}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"[DLI] EnsureLauncherProfile error: {ex.Message}");
+        }
+    }
+
+    private static string ClassifyVersion(string name, string typeName)
+    {
+        var n = (name ?? "").ToLowerInvariant();
+        if (n.Contains("neoforge")) return "neoforge";
+        if (n.Contains("forge")) return "forge";
+        if (n.Contains("optifine") || n.Contains("optifabric")) return "optifine";
+        if (n.Contains("fabric") || n.Contains("fabric-loader")) return "fabric";
+        if (n.Contains("liteloader")) return "liteloader";
+        if (n.Contains("quilt")) return "quilt";
+        var t = (typeName ?? "").ToLowerInvariant();
+        if (t == "release" || t == "snapshot" || t == "old_beta" || t == "old_alpha")
+            return "vanilla";
+        return "other";
+    }
+
     private async Task LoadVersionsAsync()
     {
         try
@@ -742,15 +916,44 @@ rmdir /s /q ""{tempPath}""
             var versionList = versions.ToList();
             Debug.WriteLine($"CmlLib: Got {versionList.Count} total versions");
 
+            // Kurulu (local) surumleri tespit et: .minecraft/versions/<id> klasoru varsa kuruludur
+            var localDir = Path.Combine(GetMinecraftDirectory(), "versions");
+            var installedIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            if (Directory.Exists(localDir))
+            {
+                foreach (var dir in Directory.GetDirectories(localDir))
+                {
+                    var id = Path.GetFileName(dir);
+                    if (!string.IsNullOrEmpty(id)) installedIds.Add(id);
+                }
+            }
+
             var releaseData = new List<(string Name, DateTime ReleaseTime)>();
+            var versionInfos = new List<VersionInfo>();
+            var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             foreach (var v in versionList)
             {
                 try
                 {
                     var typeName = v.Type ?? "";
-                    if (typeName.Equals("release", StringComparison.OrdinalIgnoreCase))
+                    var isRelease = typeName.Equals("release", StringComparison.OrdinalIgnoreCase);
+                    var category = ClassifyVersion(v.Name, typeName);
+                    var isInstalled = installedIds.Contains(v.Name);
+                    if (isRelease || category != "vanilla" || isInstalled)
                     {
-                        releaseData.Add((v.Name, v.ReleaseTime.DateTime));
+                        if (seen.Add(v.Name))
+                        {
+                            var rt = v.ReleaseTime.DateTime;
+                            releaseData.Add((v.Name, rt));
+                            versionInfos.Add(new VersionInfo
+                            {
+                                id = v.Name,
+                                category = category,
+                                releaseTime = rt.ToString("yyyy-MM-dd"),
+                                type = typeName,
+                                installed = isInstalled
+                            });
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -759,9 +962,28 @@ rmdir /s /q ""{tempPath}""
                 }
             }
 
+            // CmlLib listesinde olmayan ama diskte kurulu olanlari ekle
+            // (Forge/NeoForge/OptiFine gibi harici kurulumlar)
+            foreach (var id in installedIds)
+            {
+                if (seen.Contains(id)) continue;
+                var category = ClassifyVersion(id, "");
+                if (category == "vanilla") category = "other";
+                releaseData.Add((id, DateTime.MinValue));
+                versionInfos.Add(new VersionInfo
+                {
+                    id = id,
+                    category = category,
+                    releaseTime = "",
+                    type = "local",
+                    installed = true
+                });
+            }
+
             _cachedVersionData = releaseData;
             _cachedVersions = releaseData.OrderByDescending(x => x.ReleaseTime).Select(x => x.Name).ToList();
-            Debug.WriteLine($"CmlLib: {_cachedVersions.Count} release versions loaded (sorted by date)");
+            _cachedVersionInfos = versionInfos;
+            Debug.WriteLine($"CmlLib: {_cachedVersions.Count} versions loaded ({versionInfos.Count(x => x.installed)} installed)");
         }
         catch (Exception ex)
         {

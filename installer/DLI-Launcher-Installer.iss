@@ -2,7 +2,7 @@
 ; Build: "C:\Users\emmgg\AppData\Local\Programs\Inno Setup 7\ISCC.exe" DLI-Launcher-Installer.iss
 
 #define MyAppName "DLI Launcher"
-#define MyAppVersion "1.0.8"
+#define MyAppVersion "1.1.0"
 #define MyAppExeName "DLI-Launcher.exe"
 #define MyAppPublisher "DLI Studios"
 #define MyAppURL "https://github.com/DLI-Studios/DLI-Launcher-Source"

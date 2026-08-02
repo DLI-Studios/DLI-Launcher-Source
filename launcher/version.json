@@ -1,0 +1,12 @@
+{
+  "version": "1.1.0",
+  "buildNumber": 11,
+  "downloadUrl": "https://github.com/DLI-Studios/DLI-Launcher-Source/releases/download/v1.1.0/dli-update-1.1.0.zip",
+  "changelog": [
+    "Version list redesigned - category tabs now filter versions (All tab removed)",
+    "Loader install buttons now shown on all vanilla versions (even installed ones)",
+    "Forge/NeoForge/Fabric versions get their own install button",
+    "Forge, NeoForge and Fabric loader installation support"
+  ],
+  "mandatory": false
+}

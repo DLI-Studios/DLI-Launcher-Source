@@ -38,3 +38,9 @@ temp/
 
 # Installer output
 installer/output/
+
+# Claude skills (not part of launcher)
+.claude/
+.vite/
+*.tsbuildinfo
+preview.log
