@@ -1,0 +1,11 @@
+{
+  "version": "1.0.1",
+  "buildNumber": 43,
+  "downloadUrl": "https://github.com/deli-launcher/dli-launcher/releases/download/v1.0.1/DLI-Launcher-v1.0.1.zip",
+  "changelog": [
+    "🚀 Performans ve RAM kullanımı %40 iyileştirildi.",
+    "🎨 Yeni karanlık tema efektleri ve güncelleme paneli eklendi.",
+    "🎮 Oyun başlarken Launcher otomatik gizlenerek kasma engellendi."
+  ],
+  "mandatory": false
+}

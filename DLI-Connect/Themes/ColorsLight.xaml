@@ -1,0 +1,113 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- DLI Connect light color system -->
+    <Color x:Key="BackgroundColor">#F2F3F5</Color>
+    <Color x:Key="SidebarColor">#EBEDEF</Color>
+    <Color x:Key="ServerRailColor">#E3E5E8</Color>
+    <Color x:Key="CardColor">#FFFFFF</Color>
+    <Color x:Key="CardHoverColor">#F7F8F9</Color>
+    <Color x:Key="SidebarHoverColor">#E3E5E8</Color>
+    <Color x:Key="SidebarSelectedColor">#DBDEE1</Color>
+    <Color x:Key="MessageHoverColor">#EBEDEF</Color>
+    <Color x:Key="UserPanelColor">#E3E5E8</Color>
+    <Color x:Key="PrimaryColor">#5865F2</Color>
+    <Color x:Key="PrimaryHoverColor">#4752C4</Color>
+    <Color x:Key="AccentColor">#5865F2</Color>
+    <Color x:Key="SuccessColor">#23A55A</Color>
+    <Color x:Key="DangerColor">#DA373C</Color>
+    <Color x:Key="IdleColor">#F0B232</Color>
+    <Color x:Key="OfflineColor">#B5BAC1</Color>
+    <Color x:Key="TextPrimaryColor">#313338</Color>
+    <Color x:Key="TextSecondaryColor">#4E5058</Color>
+    <Color x:Key="TextMutedColor">#6D6F78</Color>
+    <Color x:Key="BorderColor">#DBDEE1</Color>
+    <Color x:Key="InputBackgroundColor">#FFFFFF</Color>
+    <Color x:Key="InputFocusBorderColor">#5865F2</Color>
+
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}" />
+    <SolidColorBrush x:Key="SidebarBrush" Color="{StaticResource SidebarColor}" />
+    <SolidColorBrush x:Key="ServerRailBrush" Color="{StaticResource ServerRailColor}" />
+    <SolidColorBrush x:Key="CardBrush" Color="{StaticResource CardColor}" />
+    <SolidColorBrush x:Key="CardHoverBrush" Color="{StaticResource CardHoverColor}" />
+    <SolidColorBrush x:Key="SidebarHoverBrush" Color="{StaticResource SidebarHoverColor}" />
+    <SolidColorBrush x:Key="SidebarSelectedBrush" Color="{StaticResource SidebarSelectedColor}" />
+    <SolidColorBrush x:Key="MessageHoverBrush" Color="{StaticResource MessageHoverColor}" />
+    <SolidColorBrush x:Key="UserPanelBrush" Color="{StaticResource UserPanelColor}" />
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource PrimaryColor}" />
+    <SolidColorBrush x:Key="PrimaryHoverBrush" Color="{StaticResource PrimaryHoverColor}" />
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}" />
+    <SolidColorBrush x:Key="SuccessBrush" Color="{StaticResource SuccessColor}" />
+    <SolidColorBrush x:Key="DangerBrush" Color="{StaticResource DangerColor}" />
+    <SolidColorBrush x:Key="IdleBrush" Color="{StaticResource IdleColor}" />
+    <SolidColorBrush x:Key="OfflineBrush" Color="{StaticResource OfflineColor}" />
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource TextPrimaryColor}" />
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource TextSecondaryColor}" />
+    <SolidColorBrush x:Key="TextMutedBrush" Color="{StaticResource TextMutedColor}" />
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderColor}" />
+    <SolidColorBrush x:Key="InputBackgroundBrush" Color="{StaticResource InputBackgroundColor}" />
+    <SolidColorBrush x:Key="InputFocusBorderBrush" Color="{StaticResource InputFocusBorderColor}" />
+
+    <!-- Light translucent brushes -->
+    <SolidColorBrush x:Key="DividerBrush" Color="#14000000" />
+    <SolidColorBrush x:Key="DividerStrongBrush" Color="#22000000" />
+    <SolidColorBrush x:Key="ItemHoverBrush" Color="#14000000" />
+    <SolidColorBrush x:Key="ItemActiveBrush" Color="#1F000000" />
+    <SolidColorBrush x:Key="NavActiveBrush" Color="#265865F2" />
+    <SolidColorBrush x:Key="GlassCardBrush" Color="#E6FFFFFF" />
+    <SolidColorBrush x:Key="GlassCardBorderBrush" Color="#26000000" />
+    <SolidColorBrush x:Key="UserCardBrush" Color="#E6FFFFFF" />
+    <SolidColorBrush x:Key="UserCardBorderBrush" Color="#22000000" />
+    <SolidColorBrush x:Key="BubbleSelfBrush" Color="#335865F2" />
+    <SolidColorBrush x:Key="BubbleSelfBorderBrush" Color="#335865F2" />
+    <SolidColorBrush x:Key="BubbleOtherBrush" Color="#E6FFFFFF" />
+    <SolidColorBrush x:Key="BubbleOtherBorderBrush" Color="#26000000" />
+    <SolidColorBrush x:Key="ScrimBrush" Color="#66000000" />
+    <SolidColorBrush x:Key="SearchBrush" Color="#FFFFFF" />
+
+    <LinearGradientBrush x:Key="PrimaryGradientBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#5865F2" Offset="0" />
+        <GradientStop Color="#7B52D6" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="LogoGradientBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#5865F2" Offset="0" />
+        <GradientStop Color="#7B52D6" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="AuthBackgroundGradientBrush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#E3E5E8" Offset="0" />
+        <GradientStop Color="#F2F3F5" Offset="1" />
+    </LinearGradientBrush>
+
+    <!-- Avatar gradient palette -->
+    <LinearGradientBrush x:Key="Avatar1Brush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#5865F2" Offset="0" />
+        <GradientStop Color="#7B52D6" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="Avatar2Brush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#23A55A" Offset="0" />
+        <GradientStop Color="#1A7A43" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="Avatar3Brush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#F0B232" Offset="0" />
+        <GradientStop Color="#D4820A" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="Avatar4Brush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#DA373C" Offset="0" />
+        <GradientStop Color="#B22D30" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="Avatar5Brush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#00B0F4" Offset="0" />
+        <GradientStop Color="#0077B6" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="Avatar6Brush" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#EB459E" Offset="0" />
+        <GradientStop Color="#A01A5C" Offset="1" />
+    </LinearGradientBrush>
+
+    <DropShadowEffect x:Key="CardShadow" BlurRadius="20" ShadowDepth="0" Opacity="0.12" Color="#000000" />
+    <DropShadowEffect x:Key="PrimaryGlow" BlurRadius="20" ShadowDepth="0" Opacity="0.25" Color="#5865F2" />
+    <DropShadowEffect x:Key="StatusGlow" BlurRadius="6" ShadowDepth="0" Opacity="0.6" Color="#23A55A" />
+
+</ResourceDictionary>

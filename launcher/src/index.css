@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0.13 0.02 300;
+    --foreground: 0.96 0.005 300;
+    --card: 0.17 0.025 300;
+    --card-foreground: 0.96 0.005 300;
+    --popover: 0.16 0.025 300;
+    --popover-foreground: 0.96 0.005 300;
+    --primary: 0.58 0.25 295;
+    --primary-foreground: 0.98 0.005 300;
+    --secondary: 0.22 0.03 300;
+    --secondary-foreground: 0.96 0.005 300;
+    --muted: 0.22 0.03 300;
+    --muted-foreground: 0.65 0.02 300;
+    --accent: 0.68 0.2 300;
+    --accent-foreground: 0.13 0.02 300;
+    --destructive: 0.65 0.22 25;
+    --ring: 0.58 0.25 295;
+    --sidebar: 0.11 0.02 300;
+    --sidebar-foreground: 0.96 0.005 300;
+    --sidebar-primary: 0.58 0.25 295;
+    --sidebar-primary-foreground: 0.98 0.005 300;
+    --sidebar-accent: 0.2 0.03 300;
+    --sidebar-accent-foreground: 0.96 0.005 300;
+  }
+
+  [data-theme='cyan'] {
+    --background: 0.13 0.03 210;
+    --foreground: 0.97 0.01 210;
+    --card: 0.17 0.03 210;
+    --card-foreground: 0.97 0.01 210;
+    --popover: 0.16 0.03 210;
+    --popover-foreground: 0.97 0.01 210;
+    --primary: 0.72 0.14 195;
+    --primary-foreground: 0.13 0.02 300;
+    --secondary: 0.22 0.04 210;
+    --secondary-foreground: 0.97 0.01 210;
+    --muted: 0.22 0.04 210;
+    --muted-foreground: 0.68 0.03 210;
+    --accent: 0.8 0.11 195;
+    --accent-foreground: 0.13 0.02 300;
+    --destructive: 0.65 0.22 25;
+    --ring: 0.72 0.14 195;
+    --sidebar: 0.11 0.03 210;
+    --sidebar-foreground: 0.97 0.01 210;
+    --sidebar-primary: 0.72 0.14 195;
+    --sidebar-primary-foreground: 0.13 0.02 300;
+    --sidebar-accent: 0.2 0.04 210;
+    --sidebar-accent-foreground: 0.97 0.01 210;
+  }
+
+  * {
+    @apply border-border;
+  }
+  html,
+  body {
+    @apply bg-background text-foreground;
+    overflow: hidden;
+  }
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: oklch(var(--primary)); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: oklch(var(--accent)); }
+
+.glass {
+  background: oklch(var(--card) / 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}

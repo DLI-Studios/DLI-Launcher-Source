@@ -1,0 +1,1027 @@
+{
+  "App.xaml": {
+    "mtime": 1785523170.9089928,
+    "ast_hash": "85856c20fe372a9d9626b3f89c545524",
+    "semantic_hash": "85856c20fe372a9d9626b3f89c545524"
+  },
+  "App.xaml.cs": {
+    "mtime": 1785533490.6611176,
+    "ast_hash": "94bede71d60b187b61303d8c408449ef",
+    "semantic_hash": "94bede71d60b187b61303d8c408449ef"
+  },
+  "DLI.Connect.csproj": {
+    "mtime": 1785523170.9149961,
+    "ast_hash": "c039f2e24fa5e8b173e4ce5b69417c18",
+    "semantic_hash": "c039f2e24fa5e8b173e4ce5b69417c18"
+  },
+  "DesignData/DesignLoginViewModel.cs": {
+    "mtime": 1785526534.736383,
+    "ast_hash": "ba9e92b300dd702c5f86aaa2b9717c90",
+    "semantic_hash": "ba9e92b300dd702c5f86aaa2b9717c90"
+  },
+  "Firebase/CommitModels.cs": {
+    "mtime": 1785525871.6722767,
+    "ast_hash": "3a858c560356e8bcc394e8beb31ad29e",
+    "semantic_hash": "3a858c560356e8bcc394e8beb31ad29e"
+  },
+  "Firebase/FirebaseAuth.cs": {
+    "mtime": 1785532979.6064315,
+    "ast_hash": "eca1a2d4fec8a4918b685fc0d71faed2",
+    "semantic_hash": "eca1a2d4fec8a4918b685fc0d71faed2"
+  },
+  "Firebase/FirebaseClient.cs": {
+    "mtime": 1785532957.2842448,
+    "ast_hash": "3e81cf5929f659b754b82f12c8457e3e",
+    "semantic_hash": "3e81cf5929f659b754b82f12c8457e3e"
+  },
+  "Firebase/FirebaseConfig.cs": {
+    "mtime": 1785523171.4060276,
+    "ast_hash": "77525709420328f684fb0a6a63e16cc7",
+    "semantic_hash": "77525709420328f684fb0a6a63e16cc7"
+  },
+  "Firebase/FirebaseFirestore.cs": {
+    "mtime": 1785532947.209785,
+    "ast_hash": "6500870a613437bc76ac3f82a1ff8821",
+    "semantic_hash": "6500870a613437bc76ac3f82a1ff8821"
+  },
+  "Firebase/FirebaseStorage.cs": {
+    "mtime": 1785532969.4108284,
+    "ast_hash": "0a34041660693e81ed17b1354f607f66",
+    "semantic_hash": "0a34041660693e81ed17b1354f607f66"
+  },
+  "Helpers/SessionStorage.cs": {
+    "mtime": 1785523171.4300864,
+    "ast_hash": "dd7947659cc9a8f93538484f02c2c6b4",
+    "semantic_hash": "dd7947659cc9a8f93538484f02c2c6b4"
+  },
+  "MainWindow.xaml": {
+    "mtime": 1785533147.891341,
+    "ast_hash": "1c953e7b05c343644814e206755c5cef",
+    "semantic_hash": "1c953e7b05c343644814e206755c5cef"
+  },
+  "MainWindow.xaml.cs": {
+    "mtime": 1785532196.778642,
+    "ast_hash": "5cd9e6c4f9522c20853bd0b488c0c098",
+    "semantic_hash": "5cd9e6c4f9522c20853bd0b488c0c098"
+  },
+  "Models/ConversationInfo.cs": {
+    "mtime": 1785523171.4310832,
+    "ast_hash": "9a31cf5aadb7d1df16c40c6375f552b2",
+    "semantic_hash": "9a31cf5aadb7d1df16c40c6375f552b2"
+  },
+  "Models/FirebaseRestError.cs": {
+    "mtime": 1785523171.4340854,
+    "ast_hash": "ed69a32a55126ae0041e859d3b2e6ac3",
+    "semantic_hash": "ed69a32a55126ae0041e859d3b2e6ac3"
+  },
+  "Models/FirebaseUser.cs": {
+    "mtime": 1785523171.436083,
+    "ast_hash": "59a1cab90041e80277eeeff2da392e76",
+    "semantic_hash": "59a1cab90041e80277eeeff2da392e76"
+  },
+  "Models/FirestoreDocument.cs": {
+    "mtime": 1785523171.5130854,
+    "ast_hash": "9bcfc505c5a58bbd2143b6c644c2e23c",
+    "semantic_hash": "9bcfc505c5a58bbd2143b6c644c2e23c"
+  },
+  "Models/FriendInfo.cs": {
+    "mtime": 1785532915.7546928,
+    "ast_hash": "81ba6606033a8212e7d967b9d854df71",
+    "semantic_hash": "81ba6606033a8212e7d967b9d854df71"
+  },
+  "Models/FriendRequest.cs": {
+    "mtime": 1785523171.524155,
+    "ast_hash": "0011c601dfeee886dd5971033b45dcf8",
+    "semantic_hash": "0011c601dfeee886dd5971033b45dcf8"
+  },
+  "Models/Message.cs": {
+    "mtime": 1785523171.6051412,
+    "ast_hash": "b84aeca10fbfb7a0570351bda7682a1c",
+    "semantic_hash": "b84aeca10fbfb7a0570351bda7682a1c"
+  },
+  "Models/UserProfile.cs": {
+    "mtime": 1785532909.825268,
+    "ast_hash": "c79fb9137e140bd43e45a27035df6024",
+    "semantic_hash": "c79fb9137e140bd43e45a27035df6024"
+  },
+  "Services/FriendService.cs": {
+    "mtime": 1785533028.7179437,
+    "ast_hash": "4a67ac16c0c9595520d80143aabb1f1f",
+    "semantic_hash": "4a67ac16c0c9595520d80143aabb1f1f"
+  },
+  "Services/Interfaces/IFirebaseAuth.cs": {
+    "mtime": 1785532974.4934847,
+    "ast_hash": "37431c502a166e87f5fa08fa0eb4e9f9",
+    "semantic_hash": "37431c502a166e87f5fa08fa0eb4e9f9"
+  },
+  "Services/Interfaces/IFirebaseClient.cs": {
+    "mtime": 1785532952.104637,
+    "ast_hash": "e091d11d22da3fdbcceb342217957c23",
+    "semantic_hash": "e091d11d22da3fdbcceb342217957c23"
+  },
+  "Services/Interfaces/IFirebaseFirestore.cs": {
+    "mtime": 1785532922.2851157,
+    "ast_hash": "39a05d9fa75f9ff1a664c7e6944d0173",
+    "semantic_hash": "39a05d9fa75f9ff1a664c7e6944d0173"
+  },
+  "Services/Interfaces/IFriendService.cs": {
+    "mtime": 1785525579.5801861,
+    "ast_hash": "f71e2f81dc21e3b09d754538fdd4b142",
+    "semantic_hash": "f71e2f81dc21e3b09d754538fdd4b142"
+  },
+  "Services/Interfaces/IMessagingService.cs": {
+    "mtime": 1785525169.2714074,
+    "ast_hash": "140d87833a90ac1592d05309f42e8912",
+    "semantic_hash": "140d87833a90ac1592d05309f42e8912"
+  },
+  "Services/Interfaces/INavigationService.cs": {
+    "mtime": 1785525173.6598172,
+    "ast_hash": "619475c600ff08078b6114cf95db59b0",
+    "semantic_hash": "619475c600ff08078b6114cf95db59b0"
+  },
+  "Services/Interfaces/ISessionManager.cs": {
+    "mtime": 1785532987.9048598,
+    "ast_hash": "d9b42f3ca149d764ed36bd9055088539",
+    "semantic_hash": "d9b42f3ca149d764ed36bd9055088539"
+  },
+  "Services/Interfaces/IThemeManager.cs": {
+    "mtime": 1785533509.9744198,
+    "ast_hash": "afd56e094dec89a1333f685da203252e",
+    "semantic_hash": "afd56e094dec89a1333f685da203252e"
+  },
+  "Services/MessagingService.cs": {
+    "mtime": 1785526165.3519845,
+    "ast_hash": "b4c54d30c220de88e1d86e5dfe0782d8",
+    "semantic_hash": "b4c54d30c220de88e1d86e5dfe0782d8"
+  },
+  "Services/NavigationService.cs": {
+    "mtime": 1785526074.0863357,
+    "ast_hash": "a3a819bfadc0c1db2d559124fd7756aa",
+    "semantic_hash": "a3a819bfadc0c1db2d559124fd7756aa"
+  },
+  "Services/SessionManager.cs": {
+    "mtime": 1785533004.8090813,
+    "ast_hash": "ef0fba553fce93001ece3a8a5f22d327",
+    "semantic_hash": "ef0fba553fce93001ece3a8a5f22d327"
+  },
+  "Services/ThemeManager.cs": {
+    "mtime": 1785533530.4250145,
+    "ast_hash": "32f1a4186f8317da605ea699dc0ba7ff",
+    "semantic_hash": "32f1a4186f8317da605ea699dc0ba7ff"
+  },
+  "Themes/Colors.xaml": {
+    "mtime": 1785523173.8205247,
+    "ast_hash": "3ffdb2926774519a9bad0ebe5b9b9aa1",
+    "semantic_hash": "3ffdb2926774519a9bad0ebe5b9b9aa1"
+  },
+  "Themes/ColorsLight.xaml": {
+    "mtime": 1785533168.876658,
+    "ast_hash": "6049233e204a78ae9574cbbf32c1071e",
+    "semantic_hash": "6049233e204a78ae9574cbbf32c1071e"
+  },
+  "Themes/Styles.xaml": {
+    "mtime": 1785538340.1226938,
+    "ast_hash": "7c5e4b6d4d1a9f74e168b7da91aa3610",
+    "semantic_hash": "7c5e4b6d4d1a9f74e168b7da91aa3610"
+  },
+  "Utilities/AppErrors.cs": {
+    "mtime": 1785526279.246435,
+    "ast_hash": "54f85b0a25947b8bff74cc7350c89287",
+    "semantic_hash": "54f85b0a25947b8bff74cc7350c89287"
+  },
+  "Utilities/AvatarProcessor.cs": {
+    "mtime": 1785533208.8749318,
+    "ast_hash": "e2cc887d1ca873381adc5723e1c6010b",
+    "semantic_hash": "e2cc887d1ca873381adc5723e1c6010b"
+  },
+  "Utilities/Converters.cs": {
+    "mtime": 1785533201.482062,
+    "ast_hash": "74a1299d9a48d0f171d474b1d5894c35",
+    "semantic_hash": "74a1299d9a48d0f171d474b1d5894c35"
+  },
+  "Utilities/Validators.cs": {
+    "mtime": 1785528265.152397,
+    "ast_hash": "4aa7902c253b1a906202bc5380df9e70",
+    "semantic_hash": "4aa7902c253b1a906202bc5380df9e70"
+  },
+  "ViewModels/AddFriendsViewModel.cs": {
+    "mtime": 1785533033.7744732,
+    "ast_hash": "26c3430ce606c676f4a9713e404c536d",
+    "semantic_hash": "26c3430ce606c676f4a9713e404c536d"
+  },
+  "ViewModels/ForgotPasswordViewModel.cs": {
+    "mtime": 1785526297.8778884,
+    "ast_hash": "81a2224f99449470e5003b9f5d73ba73",
+    "semantic_hash": "81a2224f99449470e5003b9f5d73ba73"
+  },
+  "ViewModels/FriendRequestsViewModel.cs": {
+    "mtime": 1785526404.9795809,
+    "ast_hash": "963595b27f89d20175f096b9ecc95d05",
+    "semantic_hash": "963595b27f89d20175f096b9ecc95d05"
+  },
+  "ViewModels/FriendsViewModel.cs": {
+    "mtime": 1785526297.9508893,
+    "ast_hash": "580b4d0f352aa5cabcdae0917cb94ce3",
+    "semantic_hash": "580b4d0f352aa5cabcdae0917cb94ce3"
+  },
+  "ViewModels/HomeViewModel.cs": {
+    "mtime": 1785533327.0423658,
+    "ast_hash": "b39a3a2f11a6e487ad64de4baad3f069",
+    "semantic_hash": "b39a3a2f11a6e487ad64de4baad3f069"
+  },
+  "ViewModels/LoginViewModel.cs": {
+    "mtime": 1785526297.6793034,
+    "ast_hash": "44e0d9b9eee27dc5dd7c1bdecfe9f0a9",
+    "semantic_hash": "44e0d9b9eee27dc5dd7c1bdecfe9f0a9"
+  },
+  "ViewModels/MainWindowViewModel.cs": {
+    "mtime": 1785526141.1551306,
+    "ast_hash": "f70829208374405eb0204bca5d5c2d39",
+    "semantic_hash": "f70829208374405eb0204bca5d5c2d39"
+  },
+  "ViewModels/MessagesViewModel.cs": {
+    "mtime": 1785533055.6252644,
+    "ast_hash": "d5ab02bcea8b7c038257a7cc64627876",
+    "semantic_hash": "d5ab02bcea8b7c038257a7cc64627876"
+  },
+  "ViewModels/ProfileViewModel.cs": {
+    "mtime": 1785536433.6666846,
+    "ast_hash": "78fc8ecdffe0504fa9070c5654de1a1f",
+    "semantic_hash": "78fc8ecdffe0504fa9070c5654de1a1f"
+  },
+  "ViewModels/RegisterViewModel.cs": {
+    "mtime": 1785526297.8618896,
+    "ast_hash": "ccc8d9e807f3f6dff09d4ac13d7521e3",
+    "semantic_hash": "ccc8d9e807f3f6dff09d4ac13d7521e3"
+  },
+  "ViewModels/SettingsViewModel.cs": {
+    "mtime": 1785536450.2875159,
+    "ast_hash": "b76e429c50748a87bbf4551f29c32431",
+    "semantic_hash": "b76e429c50748a87bbf4551f29c32431"
+  },
+  "ViewModels/VerifyEmailViewModel.cs": {
+    "mtime": 1785526297.890898,
+    "ast_hash": "5b87d7e4b3b744a0ab9a49b199229a83",
+    "semantic_hash": "5b87d7e4b3b744a0ab9a49b199229a83"
+  },
+  "ViewModels/ViewModelBase.cs": {
+    "mtime": 1785523173.8845227,
+    "ast_hash": "88b09394ef911a9ac8b7b86b32142db7",
+    "semantic_hash": "88b09394ef911a9ac8b7b86b32142db7"
+  },
+  "Views/AddFriendsView.xaml": {
+    "mtime": 1785533147.6553452,
+    "ast_hash": "22926ace054b79db4da18d5d3394bf52",
+    "semantic_hash": "22926ace054b79db4da18d5d3394bf52"
+  },
+  "Views/AddFriendsView.xaml.cs": {
+    "mtime": 1785523173.8915215,
+    "ast_hash": "8f944debee7f76938b175943e61d72fc",
+    "semantic_hash": "8f944debee7f76938b175943e61d72fc"
+  },
+  "Views/ForgotPasswordView.xaml": {
+    "mtime": 1785533147.6733587,
+    "ast_hash": "acce891b5d0f479e12540e5560123b77",
+    "semantic_hash": "acce891b5d0f479e12540e5560123b77"
+  },
+  "Views/ForgotPasswordView.xaml.cs": {
+    "mtime": 1785523173.894522,
+    "ast_hash": "c423942eeed0166360c6ed768ebb49f1",
+    "semantic_hash": "c423942eeed0166360c6ed768ebb49f1"
+  },
+  "Views/FriendRequestsView.xaml": {
+    "mtime": 1785533147.6933384,
+    "ast_hash": "f92fd879d7a3b4ce84f8c94aa1e7e0df",
+    "semantic_hash": "f92fd879d7a3b4ce84f8c94aa1e7e0df"
+  },
+  "Views/FriendRequestsView.xaml.cs": {
+    "mtime": 1785523173.9005215,
+    "ast_hash": "c220daa137516ecaa5a6c5dedb198fa1",
+    "semantic_hash": "c220daa137516ecaa5a6c5dedb198fa1"
+  },
+  "Views/FriendsView.xaml": {
+    "mtime": 1785533147.723353,
+    "ast_hash": "29e170c58139f44157bbaac82876b67f",
+    "semantic_hash": "29e170c58139f44157bbaac82876b67f"
+  },
+  "Views/FriendsView.xaml.cs": {
+    "mtime": 1785523173.9045215,
+    "ast_hash": "b78003a4bda8f8f9eceb09de5c6f440a",
+    "semantic_hash": "b78003a4bda8f8f9eceb09de5c6f440a"
+  },
+  "Views/HomeView.xaml": {
+    "mtime": 1785533475.8051503,
+    "ast_hash": "964af84a2f137667b3c5bae645b0b1e6",
+    "semantic_hash": "964af84a2f137667b3c5bae645b0b1e6"
+  },
+  "Views/HomeView.xaml.cs": {
+    "mtime": 1785523173.9115272,
+    "ast_hash": "ed987187fb2c734f12a412f71351d44f",
+    "semantic_hash": "ed987187fb2c734f12a412f71351d44f"
+  },
+  "Views/LoginView.xaml": {
+    "mtime": 1785533147.7763386,
+    "ast_hash": "130e5cb76d646739274de235b59d1023",
+    "semantic_hash": "130e5cb76d646739274de235b59d1023"
+  },
+  "Views/LoginView.xaml.cs": {
+    "mtime": 1785523173.9185357,
+    "ast_hash": "05d418f90d1e3e9d6495036b72ff8274",
+    "semantic_hash": "05d418f90d1e3e9d6495036b72ff8274"
+  },
+  "Views/MessagesView.xaml": {
+    "mtime": 1785533147.8013406,
+    "ast_hash": "6137ecddb03ee2a7ce6369886986c7e0",
+    "semantic_hash": "6137ecddb03ee2a7ce6369886986c7e0"
+  },
+  "Views/MessagesView.xaml.cs": {
+    "mtime": 1785523173.9345243,
+    "ast_hash": "a0218547b1bc49b1a9b8751726f70cff",
+    "semantic_hash": "a0218547b1bc49b1a9b8751726f70cff"
+  },
+  "Views/ProfileView.xaml": {
+    "mtime": 1785537960.0748763,
+    "ast_hash": "1a392aa4c799194ec8e7ff4bb2e94679",
+    "semantic_hash": "1a392aa4c799194ec8e7ff4bb2e94679"
+  },
+  "Views/ProfileView.xaml.cs": {
+    "mtime": 1785533551.4833498,
+    "ast_hash": "e3c53f213f3d6e26be6026c76db22373",
+    "semantic_hash": "e3c53f213f3d6e26be6026c76db22373"
+  },
+  "Views/RegisterView.xaml": {
+    "mtime": 1785533147.8273408,
+    "ast_hash": "f9bfa7a3040c84e1b21907a4152a4662",
+    "semantic_hash": "f9bfa7a3040c84e1b21907a4152a4662"
+  },
+  "Views/RegisterView.xaml.cs": {
+    "mtime": 1785523173.9375207,
+    "ast_hash": "a089bd1f93cdd07d81876bfe92c6dd46",
+    "semantic_hash": "a089bd1f93cdd07d81876bfe92c6dd46"
+  },
+  "Views/SettingsView.xaml": {
+    "mtime": 1785538351.9452562,
+    "ast_hash": "b363ce7846b550ee1d6a4c75c79590c9",
+    "semantic_hash": "b363ce7846b550ee1d6a4c75c79590c9"
+  },
+  "Views/SettingsView.xaml.cs": {
+    "mtime": 1785533439.148758,
+    "ast_hash": "35212cb816aee10b81ac80ecfc387554",
+    "semantic_hash": "35212cb816aee10b81ac80ecfc387554"
+  },
+  "Views/VerifyEmailView.xaml": {
+    "mtime": 1785533147.8623483,
+    "ast_hash": "336698849780334eff3dec803626cced",
+    "semantic_hash": "336698849780334eff3dec803626cced"
+  },
+  "Views/VerifyEmailView.xaml.cs": {
+    "mtime": 1785523173.942521,
+    "ast_hash": "89c0fdce7ccc234018f32ec6df655d06",
+    "semantic_hash": "89c0fdce7ccc234018f32ec6df655d06"
+  },
+  "bin/Debug/net9.0-windows/DLI-Connect.deps.json": {
+    "mtime": 1785528205.0733953,
+    "ast_hash": "c24348f866dcbd24f8737b617eab8487",
+    "semantic_hash": "c24348f866dcbd24f8737b617eab8487"
+  },
+  "bin/Debug/net9.0-windows/DLI-Connect.runtimeconfig.json": {
+    "mtime": 1785528205.185386,
+    "ast_hash": "f1abe7114dfebd122a43ce2bfa794fa8",
+    "semantic_hash": "f1abe7114dfebd122a43ce2bfa794fa8"
+  },
+  "bin/Release/net9.0-windows/DLI-Connect.deps.json": {
+    "mtime": 1785523463.5640311,
+    "ast_hash": "c24348f866dcbd24f8737b617eab8487",
+    "semantic_hash": "c24348f866dcbd24f8737b617eab8487"
+  },
+  "bin/Release/net9.0-windows/DLI-Connect.runtimeconfig.json": {
+    "mtime": 1785523463.9621742,
+    "ast_hash": "99f9ea20269e5475c13059b3aaea7e45",
+    "semantic_hash": "99f9ea20269e5475c13059b3aaea7e45"
+  },
+  "obj/DLI.Connect.csproj.nuget.dgspec.json": {
+    "mtime": 1785523171.663785,
+    "ast_hash": "650baa4de4bee71da56aa96d890a996e",
+    "semantic_hash": "650baa4de4bee71da56aa96d890a996e"
+  },
+  "obj/DLI.Connect_1mh2ymyr_wpftmp.csproj.nuget.dgspec.json": {
+    "mtime": 1785523171.663785,
+    "ast_hash": "650baa4de4bee71da56aa96d890a996e",
+    "semantic_hash": "650baa4de4bee71da56aa96d890a996e"
+  },
+  "obj/DLI.Connect_222asska_wpftmp.csproj.nuget.dgspec.json": {
+    "mtime": 1785523171.663785,
+    "ast_hash": "650baa4de4bee71da56aa96d890a996e",
+    "semantic_hash": "650baa4de4bee71da56aa96d890a996e"
+  },
+  "obj/DLI.Connect_aidzzgvf_wpftmp.csproj.nuget.dgspec.json": {
+    "mtime": 1785523171.6747801,
+    "ast_hash": "650baa4de4bee71da56aa96d890a996e",
+    "semantic_hash": "650baa4de4bee71da56aa96d890a996e"
+  },
+  "obj/DLI.Connect_cldlh3xd_wpftmp.csproj.nuget.dgspec.json": {
+    "mtime": 1785523171.9110415,
+    "ast_hash": "650baa4de4bee71da56aa96d890a996e",
+    "semantic_hash": "650baa4de4bee71da56aa96d890a996e"
+  },
+  "obj/DLI.Connect_e5331dpp_wpftmp.csproj.nuget.dgspec.json": {
+    "mtime": 1785523171.663785,
+    "ast_hash": "650baa4de4bee71da56aa96d890a996e",
+    "semantic_hash": "650baa4de4bee71da56aa96d890a996e"
+  },
+  "obj/DLI.Connect_i32rwsgy_wpftmp.csproj.nuget.dgspec.json": {
+    "mtime": 1785523171.663785,
+    "ast_hash": "650baa4de4bee71da56aa96d890a996e",
+    "semantic_hash": "650baa4de4bee71da56aa96d890a996e"
+  },
+  "obj/DLI.Connect_iorggqsv_wpftmp.csproj.nuget.dgspec.json": {
+    "mtime": 1785523171.663785,
+    "ast_hash": "650baa4de4bee71da56aa96d890a996e",
+    "semantic_hash": "650baa4de4bee71da56aa96d890a996e"
+  },
+  "obj/DLI.Connect_jmxsggas_wpftmp.csproj.nuget.dgspec.json": {
+    "mtime": 1785523171.663785,
+    "ast_hash": "650baa4de4bee71da56aa96d890a996e",
+    "semantic_hash": "650baa4de4bee71da56aa96d890a996e"
+  },
+  "obj/DLI.Connect_ruwnzx1a_wpftmp.csproj.nuget.dgspec.json": {
+    "mtime": 1785523171.663785,
+    "ast_hash": "650baa4de4bee71da56aa96d890a996e",
+    "semantic_hash": "650baa4de4bee71da56aa96d890a996e"
+  },
+  "obj/DLI.Connect_sd3wgajq_wpftmp.csproj.nuget.dgspec.json": {
+    "mtime": 1785523171.663785,
+    "ast_hash": "650baa4de4bee71da56aa96d890a996e",
+    "semantic_hash": "650baa4de4bee71da56aa96d890a996e"
+  },
+  "obj/DLI.Connect_suylnerj_wpftmp.csproj.nuget.dgspec.json": {
+    "mtime": 1785523171.663785,
+    "ast_hash": "650baa4de4bee71da56aa96d890a996e",
+    "semantic_hash": "650baa4de4bee71da56aa96d890a996e"
+  },
+  "obj/DLI.Connect_tbq4v5kg_wpftmp.csproj.nuget.dgspec.json": {
+    "mtime": 1785523171.663785,
+    "ast_hash": "650baa4de4bee71da56aa96d890a996e",
+    "semantic_hash": "650baa4de4bee71da56aa96d890a996e"
+  },
+  "obj/DLI.Connect_tnfxtlx3_wpftmp.csproj.nuget.dgspec.json": {
+    "mtime": 1785523171.663785,
+    "ast_hash": "650baa4de4bee71da56aa96d890a996e",
+    "semantic_hash": "650baa4de4bee71da56aa96d890a996e"
+  },
+  "obj/DLI.Connect_vdv3vuyx_wpftmp.csproj.nuget.dgspec.json": {
+    "mtime": 1785523171.663785,
+    "ast_hash": "650baa4de4bee71da56aa96d890a996e",
+    "semantic_hash": "650baa4de4bee71da56aa96d890a996e"
+  },
+  "obj/DLI.Connect_xrascc3a_wpftmp.csproj.nuget.dgspec.json": {
+    "mtime": 1785523171.663785,
+    "ast_hash": "650baa4de4bee71da56aa96d890a996e",
+    "semantic_hash": "650baa4de4bee71da56aa96d890a996e"
+  },
+  "obj/Debug/net9.0-windows/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs": {
+    "mtime": 1785523171.9487183,
+    "ast_hash": "60283218ad643d1ea75fac7a1cdeb6f3",
+    "semantic_hash": "60283218ad643d1ea75fac7a1cdeb6f3"
+  },
+  "obj/Debug/net9.0-windows/App.g.cs": {
+    "mtime": 1785523171.9597094,
+    "ast_hash": "2f0b34234f996a93309876dbc5404c16",
+    "semantic_hash": "2f0b34234f996a93309876dbc5404c16"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect.AssemblyInfo.cs": {
+    "mtime": 1785528200.7955627,
+    "ast_hash": "3be58ecbbe775a870b15a6e7eaae99df",
+    "semantic_hash": "3be58ecbbe775a870b15a6e7eaae99df"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect.GlobalUsings.g.cs": {
+    "mtime": 1785523172.0607018,
+    "ast_hash": "ebd48fdafbf2ed9d2d8d76c8554c774f",
+    "semantic_hash": "ebd48fdafbf2ed9d2d8d76c8554c774f"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect_0gvw2q5k_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785523172.0637083,
+    "ast_hash": "cc5c16d652e36831be43a6f223004b48",
+    "semantic_hash": "cc5c16d652e36831be43a6f223004b48"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect_0gvw2q5k_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785523172.0777159,
+    "ast_hash": "ebd48fdafbf2ed9d2d8d76c8554c774f",
+    "semantic_hash": "ebd48fdafbf2ed9d2d8d76c8554c774f"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect_3hpjs5nm_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785536368.8421054,
+    "ast_hash": "3be58ecbbe775a870b15a6e7eaae99df",
+    "semantic_hash": "3be58ecbbe775a870b15a6e7eaae99df"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect_3hpjs5nm_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785536368.8491025,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect_3pza4mxq_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785536535.5880692,
+    "ast_hash": "3be58ecbbe775a870b15a6e7eaae99df",
+    "semantic_hash": "3be58ecbbe775a870b15a6e7eaae99df"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect_3pza4mxq_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785536535.5940716,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect_cldlh3xd_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785523172.0787072,
+    "ast_hash": "cc5c16d652e36831be43a6f223004b48",
+    "semantic_hash": "cc5c16d652e36831be43a6f223004b48"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect_cldlh3xd_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785523172.0957897,
+    "ast_hash": "ebd48fdafbf2ed9d2d8d76c8554c774f",
+    "semantic_hash": "ebd48fdafbf2ed9d2d8d76c8554c774f"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect_fhuebx5q_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785532538.6586177,
+    "ast_hash": "3be58ecbbe775a870b15a6e7eaae99df",
+    "semantic_hash": "3be58ecbbe775a870b15a6e7eaae99df"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect_fhuebx5q_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785532538.6666176,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect_idsmabza_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785528280.3776364,
+    "ast_hash": "3be58ecbbe775a870b15a6e7eaae99df",
+    "semantic_hash": "3be58ecbbe775a870b15a6e7eaae99df"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect_idsmabza_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785528280.3896472,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect_qbhumb44_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785533106.5180004,
+    "ast_hash": "3be58ecbbe775a870b15a6e7eaae99df",
+    "semantic_hash": "3be58ecbbe775a870b15a6e7eaae99df"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect_qbhumb44_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785533106.5310006,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect_w4pm5qaf_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785528184.9517586,
+    "ast_hash": "3be58ecbbe775a870b15a6e7eaae99df",
+    "semantic_hash": "3be58ecbbe775a870b15a6e7eaae99df"
+  },
+  "obj/Debug/net9.0-windows/DLI.Connect_w4pm5qaf_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785528184.9567635,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Debug/net9.0-windows/GeneratedInternalTypeHelper.g.cs": {
+    "mtime": 1785536533.1173284,
+    "ast_hash": "87d62a91e962ed61306335aeb28a7400",
+    "semantic_hash": "87d62a91e962ed61306335aeb28a7400"
+  },
+  "obj/Debug/net9.0-windows/MainWindow.g.cs": {
+    "mtime": 1785536533.1043305,
+    "ast_hash": "0a5a20a631abd579a1141045b02d2a08",
+    "semantic_hash": "0a5a20a631abd579a1141045b02d2a08"
+  },
+  "obj/Debug/net9.0-windows/Views/AddFriendsView.g.cs": {
+    "mtime": 1785536533.4183383,
+    "ast_hash": "bb6a72b1a2007ac1297001eb3b73c11b",
+    "semantic_hash": "bb6a72b1a2007ac1297001eb3b73c11b"
+  },
+  "obj/Debug/net9.0-windows/Views/ForgotPasswordView.g.cs": {
+    "mtime": 1785536367.590745,
+    "ast_hash": "a854b59975074015f01109c81bb242c1",
+    "semantic_hash": "a854b59975074015f01109c81bb242c1"
+  },
+  "obj/Debug/net9.0-windows/Views/FriendRequestsView.g.cs": {
+    "mtime": 1785536533.462423,
+    "ast_hash": "77d4024a44774a9970f2def5ce1c364e",
+    "semantic_hash": "77d4024a44774a9970f2def5ce1c364e"
+  },
+  "obj/Debug/net9.0-windows/Views/FriendsView.g.cs": {
+    "mtime": 1785536533.5334203,
+    "ast_hash": "9e4ad111a8c70532e439f8f5a509ba2d",
+    "semantic_hash": "9e4ad111a8c70532e439f8f5a509ba2d"
+  },
+  "obj/Debug/net9.0-windows/Views/HomeView.g.cs": {
+    "mtime": 1785536533.8569775,
+    "ast_hash": "e712a7059eeb65ba9458de3e97d24c23",
+    "semantic_hash": "e712a7059eeb65ba9458de3e97d24c23"
+  },
+  "obj/Debug/net9.0-windows/Views/LoginView.g.cs": {
+    "mtime": 1785536533.3633275,
+    "ast_hash": "0b41f6b7fe7c5036d6defab571c0251f",
+    "semantic_hash": "0b41f6b7fe7c5036d6defab571c0251f"
+  },
+  "obj/Debug/net9.0-windows/Views/MessagesView.g.cs": {
+    "mtime": 1785536534.25496,
+    "ast_hash": "fa10fd432355ab794a5cf25c0089e488",
+    "semantic_hash": "fa10fd432355ab794a5cf25c0089e488"
+  },
+  "obj/Debug/net9.0-windows/Views/ProfileView.g.cs": {
+    "mtime": 1785536534.3739598,
+    "ast_hash": "d2e1b505d92ceb0118c63c532ef381e0",
+    "semantic_hash": "d2e1b505d92ceb0118c63c532ef381e0"
+  },
+  "obj/Debug/net9.0-windows/Views/RegisterView.g.cs": {
+    "mtime": 1785536367.6847537,
+    "ast_hash": "74cc884b68373553dff7541a7d4c7f09",
+    "semantic_hash": "74cc884b68373553dff7541a7d4c7f09"
+  },
+  "obj/Debug/net9.0-windows/Views/SettingsView.g.cs": {
+    "mtime": 1785536534.6585932,
+    "ast_hash": "aaf09f5434f277e6e3a68e3c288ddb45",
+    "semantic_hash": "aaf09f5434f277e6e3a68e3c288ddb45"
+  },
+  "obj/Debug/net9.0-windows/Views/VerifyEmailView.g.cs": {
+    "mtime": 1785536367.8149283,
+    "ast_hash": "3b84a732f44b3fe34881615fb7e230eb",
+    "semantic_hash": "3b84a732f44b3fe34881615fb7e230eb"
+  },
+  "obj/Release/net9.0-windows/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs": {
+    "mtime": 1785523197.5695467,
+    "ast_hash": "ff3517b1163003098ee37a1a6f1dc08d",
+    "semantic_hash": "ff3517b1163003098ee37a1a6f1dc08d"
+  },
+  "obj/Release/net9.0-windows/App.g.cs": {
+    "mtime": 1785523195.8380046,
+    "ast_hash": "2f0b34234f996a93309876dbc5404c16",
+    "semantic_hash": "2f0b34234f996a93309876dbc5404c16"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect.AssemblyInfo.cs": {
+    "mtime": 1785523459.668533,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect.GlobalUsings.g.cs": {
+    "mtime": 1785523194.218989,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_0xpvys40_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785538024.3082204,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_0xpvys40_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785538024.3182206,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_1mh2ymyr_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785523222.90936,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_1mh2ymyr_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785523222.9383602,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_1wqye54f_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785524278.673436,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_1wqye54f_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785524278.6824367,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_222asska_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785525940.103378,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_222asska_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785525940.1123765,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_5f2r3zq0_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785532502.2101665,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_5f2r3zq0_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785532502.219166,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_cn5t5wvc_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785533081.961758,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_cn5t5wvc_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785533081.9697726,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_e4mkgps0_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785532209.5214353,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_e4mkgps0_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785532209.535434,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_e5331dpp_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785533540.706886,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_e5331dpp_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785533540.7258866,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_flgpjisb_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785536463.374636,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_flgpjisb_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785536463.3846357,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_gigrpd1v_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785532361.0582335,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_gigrpd1v_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785532361.071288,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_gw1ue4r1_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785526550.7515771,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_gw1ue4r1_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785526550.7615771,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_h0omdlfz_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785528306.41863,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_h0omdlfz_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785528306.427633,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_i32rwsgy_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785533524.1168134,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_i32rwsgy_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785533524.1268158,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_iorggqsv_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785526309.5590189,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_iorggqsv_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785526309.5700207,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_jfbifiuk_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785533587.2012732,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_jfbifiuk_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785533587.2142694,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_jmxsggas_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785526086.7594607,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_jmxsggas_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785526086.7714608,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_k2v30kdl_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785538372.79237,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_k2v30kdl_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785538372.8053675,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_m3vgmixa_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785523451.772042,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_m3vgmixa_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785523451.7880409,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_ruwnzx1a_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785523289.6715753,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_ruwnzx1a_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785523289.6908598,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_sd3wgajq_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785533500.0301647,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_sd3wgajq_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785533500.0431604,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_suylnerj_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785523312.2966125,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_suylnerj_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785523312.3076134,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_svkjohix_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785526417.0510318,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_svkjohix_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785526417.0620327,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_tbq4v5kg_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785526391.120519,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_tbq4v5kg_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785526391.1435206,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_tnfxtlx3_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785523197.710876,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_tnfxtlx3_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785523197.7258773,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_ufcrzd1c_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785526210.7476742,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_ufcrzd1c_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785526210.7596693,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_vdv3vuyx_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785526176.8411946,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_vdv3vuyx_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785526176.8922036,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_xrascc3a_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785526337.8606732,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_xrascc3a_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785526337.8706722,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_yt1us5rv_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785532278.9895253,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_yt1us5rv_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785532279.0035918,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_zoh5r2f3_wpftmp.AssemblyInfo.cs": {
+    "mtime": 1785526467.2181482,
+    "ast_hash": "72d559a8c13a5809ee0b74e93a5ee689",
+    "semantic_hash": "72d559a8c13a5809ee0b74e93a5ee689"
+  },
+  "obj/Release/net9.0-windows/DLI.Connect_zoh5r2f3_wpftmp.GlobalUsings.g.cs": {
+    "mtime": 1785526467.2291493,
+    "ast_hash": "4fbed6aaa1f15b8c17aad7964dc1454d",
+    "semantic_hash": "4fbed6aaa1f15b8c17aad7964dc1454d"
+  },
+  "obj/Release/net9.0-windows/GeneratedInternalTypeHelper.g.cs": {
+    "mtime": 1785538370.2482588,
+    "ast_hash": "87d62a91e962ed61306335aeb28a7400",
+    "semantic_hash": "87d62a91e962ed61306335aeb28a7400"
+  },
+  "obj/Release/net9.0-windows/MainWindow.g.cs": {
+    "mtime": 1785538370.2422576,
+    "ast_hash": "0a5a20a631abd579a1141045b02d2a08",
+    "semantic_hash": "0a5a20a631abd579a1141045b02d2a08"
+  },
+  "obj/Release/net9.0-windows/Views/AddFriendsView.g.cs": {
+    "mtime": 1785538370.3752577,
+    "ast_hash": "bb6a72b1a2007ac1297001eb3b73c11b",
+    "semantic_hash": "bb6a72b1a2007ac1297001eb3b73c11b"
+  },
+  "obj/Release/net9.0-windows/Views/ForgotPasswordView.g.cs": {
+    "mtime": 1785533499.0588434,
+    "ast_hash": "a854b59975074015f01109c81bb242c1",
+    "semantic_hash": "a854b59975074015f01109c81bb242c1"
+  },
+  "obj/Release/net9.0-windows/Views/FriendRequestsView.g.cs": {
+    "mtime": 1785538370.4042685,
+    "ast_hash": "77d4024a44774a9970f2def5ce1c364e",
+    "semantic_hash": "77d4024a44774a9970f2def5ce1c364e"
+  },
+  "obj/Release/net9.0-windows/Views/FriendsView.g.cs": {
+    "mtime": 1785538370.4502594,
+    "ast_hash": "9e4ad111a8c70532e439f8f5a509ba2d",
+    "semantic_hash": "9e4ad111a8c70532e439f8f5a509ba2d"
+  },
+  "obj/Release/net9.0-windows/Views/HomeView.g.cs": {
+    "mtime": 1785538370.6482577,
+    "ast_hash": "e712a7059eeb65ba9458de3e97d24c23",
+    "semantic_hash": "e712a7059eeb65ba9458de3e97d24c23"
+  },
+  "obj/Release/net9.0-windows/Views/LoginView.g.cs": {
+    "mtime": 1785538371.0002587,
+    "ast_hash": "0b41f6b7fe7c5036d6defab571c0251f",
+    "semantic_hash": "0b41f6b7fe7c5036d6defab571c0251f"
+  },
+  "obj/Release/net9.0-windows/Views/MessagesView.g.cs": {
+    "mtime": 1785538370.9132676,
+    "ast_hash": "fa10fd432355ab794a5cf25c0089e488",
+    "semantic_hash": "fa10fd432355ab794a5cf25c0089e488"
+  },
+  "obj/Release/net9.0-windows/Views/ProfileView.g.cs": {
+    "mtime": 1785538371.074264,
+    "ast_hash": "50d265fc6e48fc2682d5776d1cd9272b",
+    "semantic_hash": "50d265fc6e48fc2682d5776d1cd9272b"
+  },
+  "obj/Release/net9.0-windows/Views/RegisterView.g.cs": {
+    "mtime": 1785533499.155836,
+    "ast_hash": "74cc884b68373553dff7541a7d4c7f09",
+    "semantic_hash": "74cc884b68373553dff7541a7d4c7f09"
+  },
+  "obj/Release/net9.0-windows/Views/SettingsView.g.cs": {
+    "mtime": 1785538371.2772663,
+    "ast_hash": "c7628d3ba789de63c7c06140ac5463fd",
+    "semantic_hash": "c7628d3ba789de63c7c06140ac5463fd"
+  },
+  "obj/Release/net9.0-windows/Views/VerifyEmailView.g.cs": {
+    "mtime": 1785533499.2308376,
+    "ast_hash": "3b84a732f44b3fe34881615fb7e230eb",
+    "semantic_hash": "3b84a732f44b3fe34881615fb7e230eb"
+  },
+  "obj/project.assets.json": {
+    "mtime": 1785523171.9427109,
+    "ast_hash": "11b29fee22830aabe1791df81ff3e520",
+    "semantic_hash": "11b29fee22830aabe1791df81ff3e520"
+  }
+}

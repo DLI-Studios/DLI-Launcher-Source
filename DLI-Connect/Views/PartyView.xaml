@@ -1,0 +1,511 @@
+<UserControl x:Class="DLI.Connect.Views.PartyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:utilities="clr-namespace:DLI.Connect.Utilities"
+             xmlns:viewmodels="clr-namespace:DLI.Connect.ViewModels">
+    <UserControl.Resources>
+        <utilities:BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <utilities:InverseBooleanToVisibilityConverter x:Key="InvBoolToVis" />
+        <utilities:StringToImageSourceConverter x:Key="StrToImg" />
+        <utilities:HasAvatarToVisibilityConverter x:Key="HasAvatarVis" />
+        <utilities:InverseHasAvatarToVisibilityConverter x:Key="InvHasAvatarVis" />
+    </UserControl.Resources>
+
+    <UserControl.InputBindings>
+        <KeyBinding Key="Enter" Command="{Binding SearchInviteCommand}" />
+    </UserControl.InputBindings>
+
+    <Grid Margin="32,28,32,28">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <TextBlock Text="Parti" Style="{StaticResource SectionTitleStyle}" />
+            <TextBlock Text="Parti oluştur, arkadaşlarını davet et, yönet."
+                       Style="{StaticResource MutedTextStyle}" Margin="0,4,0,0" />
+            <TextBlock Text="{Binding ErrorMessage}" Foreground="{DynamicResource DangerBrush}" FontSize="12"
+                       Margin="0,8,0,0" TextWrapping="Wrap" />
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="0,24,0,0">
+            <!-- Not in party: Create party -->
+            <StackPanel Visibility="{Binding IsInParty, Converter={StaticResource InvBoolToVis}}"
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="&#xE715;" Style="{StaticResource EmptyStateIconStyle}" FontSize="48" />
+                <TextBlock Text="Henüz bir partide değilsin." Style="{StaticResource EmptyStateTextStyle}"
+                           FontSize="16" FontWeight="SemiBold" Margin="0,16,0,0" />
+                <TextBlock Text="Parti oluşturup arkadaşlarını davet ederek beraber oynayabilirsin. Maksimum 3 kişi."
+                           Style="{StaticResource EmptyStateTextStyle}" Margin="0,8,0,0" MaxWidth="380" />
+                <Button Content="Parti Oluştur" Style="{StaticResource PrimaryButtonStyle}"
+                        Padding="24,12" Margin="0,24,0,0" HorizontalAlignment="Center"
+                        Command="{Binding CreatePartyCommand}" IsEnabled="{Binding IsIdle}" />
+            </StackPanel>
+
+            <!-- In party: Party panel -->
+            <StackPanel Visibility="{Binding IsInParty, Converter={StaticResource BoolToVis}}">
+                <!-- Party Header -->
+                <Border Style="{StaticResource CardStyle}" Padding="24,20" Margin="0,0,0,16">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Border Width="56" Height="56" CornerRadius="28"
+                                    Background="{DynamicResource LogoGradientBrush}">
+                                <TextBlock Text="&#xE715;" FontFamily="Segoe MDL2 Assets" FontSize="24"
+                                           Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                            <StackPanel Margin="16,0,0,0" VerticalAlignment="Center">
+                                <TextBlock Text="Parti" FontSize="18" FontWeight="Bold"
+                                           Foreground="{DynamicResource TextPrimaryBrush}" />
+                                <TextBlock Text="{Binding Party.MemberCount, StringFormat='{}{0}/3 Üye'}"
+                                           FontSize="12" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,2,0,0" />
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                            <Button Content="Davet Et" Style="{StaticResource PrimaryButtonStyle}"
+                                    Padding="18,10" Margin="0,0,8,0"
+                                    Command="{Binding ToggleInvitePanelCommand}"
+                                    IsEnabled="{Binding IsIdle}" />
+                            <Button Content="Ayrıl" Style="{StaticResource DangerButtonStyle}"
+                                    Padding="18,10"
+                                    Command="{Binding LeavePartyCommand}"
+                                    IsEnabled="{Binding IsIdle}" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- Invite Panel -->
+                <Border Style="{StaticResource CardStyle}" Padding="20,16" Margin="0,0,0,16"
+                        Visibility="{Binding IsInvitePanelOpen, Converter={StaticResource BoolToVis}}">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox Height="40" Padding="8,4"
+                                     Text="{Binding InviteSearchText, UpdateSourceTrigger=PropertyChanged}"
+                                     ToolTip="Kullanıcı adı ara" />
+                            <Button Grid.Column="1" Content="Ara" Style="{StaticResource SmallPrimaryButtonStyle}"
+                                    Height="40" Margin="8,0,0,0"
+                                    Command="{Binding SearchInviteCommand}" IsEnabled="{Binding IsIdle}" />
+                            <Button Grid.Column="2" Content="Kapat" Style="{StaticResource GhostButtonStyle}"
+                                    Height="40" Margin="8,0,0,0"
+                                    Command="{Binding ToggleInvitePanelCommand}" />
+                        </Grid>
+
+                        <ItemsControl ItemsSource="{Binding InviteResults}"
+                                      Visibility="{Binding HasSearched, Converter={StaticResource BoolToVis}}"
+                                      Margin="0,12,0,0">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Style="{StaticResource FriendCardStyle}" Margin="0,0,0,8" Padding="14,10">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border Width="38" Height="38" CornerRadius="19"
+                                                    Background="{DynamicResource PrimaryGradientBrush}" VerticalAlignment="Center">
+                                                <TextBlock Text="{Binding Initial}" Foreground="White" FontSize="14"
+                                                           FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Border>
+                                            <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding DisplayName}" FontSize="13" FontWeight="SemiBold"
+                                                               Foreground="{DynamicResource TextPrimaryBrush}" TextTrimming="CharacterEllipsis" />
+                                                    <Ellipse Width="8" Height="8" Margin="8,0,0,0" VerticalAlignment="Center">
+                                                        <Ellipse.Style>
+                                                            <Style TargetType="Ellipse">
+                                                                <Setter Property="Fill" Value="#6B7280" />
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsOnline}" Value="True">
+                                                                        <Setter Property="Fill" Value="#34D399" />
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Ellipse.Style>
+                                                    </Ellipse>
+                                                </StackPanel>
+                                                <TextBlock Text="{Binding Username}" FontSize="11"
+                                                           Foreground="{DynamicResource TextSecondaryBrush}" TextTrimming="CharacterEllipsis" />
+                                            </StackPanel>
+                                            <Button Grid.Column="2" VerticalAlignment="Center"
+                                                    Style="{StaticResource SmallPrimaryButtonStyle}"
+                                                    Command="{Binding InviteCommand}"
+                                                    IsEnabled="{Binding CanInvite}"
+                                                    Content="{Binding InviteButtonText}" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Border>
+
+                <!-- Voice Chat Panel -->
+                <Border Style="{StaticResource CardStyle}" Padding="24,20" Margin="0,0,0,16">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                <Border Width="40" Height="40" CornerRadius="20"
+                                        Background="{DynamicResource PrimaryGradientBrush}">
+                                    <TextBlock Text="&#xE720;" FontFamily="Segoe MDL2 Assets" FontSize="18"
+                                               Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <StackPanel Margin="12,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock Text="Ses Sohbeti" FontSize="14" FontWeight="SemiBold"
+                                               Foreground="{DynamicResource TextPrimaryBrush}" />
+                                    <TextBlock Text="{Binding VoiceStatusText, TargetNullValue='Bağlı değil'}"
+                                               FontSize="11" Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,2,0,0" />
+                                </StackPanel>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                <Button Content="Ses'e Katıl" Style="{StaticResource PrimaryButtonStyle}"
+                                        Padding="16,8" Margin="0,0,8,0"
+                                        Command="{Binding JoinVoiceChannelCommand}"
+                                        IsEnabled="{Binding IsIdle}"
+                                        Visibility="{Binding IsInVoiceChannel, Converter={StaticResource InvBoolToVis}}" />
+                                <Button Content="Ses'ten Ayrıl" Style="{StaticResource DangerButtonStyle}"
+                                        Padding="16,8"
+                                        Command="{Binding LeaveVoiceChannelCommand}"
+                                        IsEnabled="{Binding IsIdle}"
+                                        Visibility="{Binding IsInVoiceChannel, Converter={StaticResource BoolToVis}}" />
+                            </StackPanel>
+                        </Grid>
+
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,16,0,0"
+                                    Visibility="{Binding IsInVoiceChannel, Converter={StaticResource BoolToVis}}">
+                            <Button FontSize="16"
+                                    Style="{StaticResource GhostButtonStyle}"
+                                    Padding="12,8" Margin="0,0,8,0"
+                                    Command="{Binding ToggleMuteCommand}"
+                                    ToolTip="Mikrofonu Aç/Kapat">
+                                <Button.Content>
+                                    <TextBlock>
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Text" Value="🎤" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsVoiceMuted}" Value="True">
+                                                        <Setter Property="Text" Value="🔇" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Button.Content>
+                            </Button>
+                            <Button FontSize="16"
+                                    Style="{StaticResource GhostButtonStyle}"
+                                    Padding="12,8"
+                                    Command="{Binding ToggleDeafenCommand}"
+                                    ToolTip="Sağırlaştır/Aç">
+                                <Button.Content>
+                                    <TextBlock>
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Text" Value="🔊" />
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsVoiceDeafened}" Value="True">
+                                                        <Setter Property="Text" Value="🔇" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </Button.Content>
+                            </Button>
+                        </StackPanel>
+
+                        <ItemsControl Grid.Row="2" Margin="0,16,0,0"
+                                      ItemsSource="{Binding VoiceParticipants}"
+                                      Visibility="{Binding IsInVoiceChannel, Converter={StaticResource BoolToVis}}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Style="{StaticResource FriendCardStyle}" Margin="0,0,0,8" Padding="16,12">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Border Width="42" Height="42" CornerRadius="21"
+                                                    Background="{DynamicResource PrimaryGradientBrush}" VerticalAlignment="Center">
+                                                <Border.Style>
+                                                    <Style TargetType="Border">
+                                                        <Setter Property="BorderThickness" Value="0" />
+                                                        <Setter Property="BorderBrush" Value="Transparent" />
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding IsSpeaking}" Value="True">
+                                                                <Setter Property="BorderThickness" Value="3" />
+                                                                <Setter Property="BorderBrush" Value="#34D399" />
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Border.Style>
+                                                <Grid>
+                                                    <Image Source="{Binding Avatar, Converter={StaticResource StrToImg}}"
+                                                           Visibility="{Binding Avatar, Converter={StaticResource HasAvatarVis}}"
+                                                           Stretch="UniformToFill" />
+                                                    <TextBlock Text="{Binding DisplayName, Converter={StaticResource InvHasAvatarVis}}"
+                                                               Foreground="White" FontSize="15" FontWeight="Bold"
+                                                               HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                </Grid>
+                                            </Border>
+
+                                            <StackPanel Grid.Column="1" Margin="14,0,0,0" VerticalAlignment="Center">
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding DisplayName}" FontSize="14" FontWeight="SemiBold"
+                                                               Foreground="{DynamicResource TextPrimaryBrush}" TextTrimming="CharacterEllipsis" />
+                                                    <TextBlock Text="{Binding Username}" FontSize="12"
+                                                               Foreground="{DynamicResource TextSecondaryBrush}" Margin="8,0,0,0"
+                                                               TextTrimming="CharacterEllipsis" />
+                                                    <TextBlock Text="Lider" FontSize="11"
+                                                               Foreground="{DynamicResource PrimaryBrush}" Margin="8,0,0,0"
+                                                               VerticalAlignment="Center"
+                                                               Visibility="{Binding IsLeader, Converter={StaticResource BoolToVis}}" />
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                                                    <TextBlock Text="🔇" FontSize="11"
+                                                               Foreground="{DynamicResource DangerBrush}"
+                                                               Margin="0,0,6,0" VerticalAlignment="Center"
+                                                               Visibility="{Binding IsMuted, Converter={StaticResource BoolToVis}}" />
+                                                    <TextBlock Text="🔇" FontSize="11"
+                                                               Foreground="{DynamicResource DangerBrush}"
+                                                               Margin="0,0,6,0" VerticalAlignment="Center"
+                                                               Visibility="{Binding IsDeafened, Converter={StaticResource BoolToVis}}" />
+                                                    <TextBlock Text="🎤" FontSize="11" Margin="0,0,6,0" VerticalAlignment="Center"
+                                                               Visibility="{Binding IsSpeaking, Converter={StaticResource BoolToVis}}" />
+                                                    <Ellipse Width="6" Height="6" Fill="#34D399" Margin="0,0,6,0"
+                                                             VerticalAlignment="Center"
+                                                             Visibility="{Binding IsSpeaking, Converter={StaticResource BoolToVis}}" />
+                                                    <TextBlock Text="{Binding QualityText}" FontSize="11"
+                                                               Foreground="{DynamicResource TextSecondaryBrush}" Margin="0,0,8,0"
+                                                               VerticalAlignment="Center" />
+                                                    <TextBlock FontSize="11" VerticalAlignment="Center"
+                                                               Foreground="{DynamicResource TextSecondaryBrush}">
+                                                        <Run Text="Ping: " /><Run Text="{Binding Ping}" /><Run Text=" ms" />
+                                                    </TextBlock>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </Border>
+
+                <!-- Members List -->
+                <TextBlock Text="ÜYELER" Style="{StaticResource NavSectionHeaderStyle}" Margin="0,0,0,10" />
+                <Border Style="{StaticResource CardStyle}" Padding="16">
+                    <ItemsControl ItemsSource="{Binding Party.Members}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource FriendCardStyle}" Margin="0,0,0,10" Padding="16,12">
+                                    <Border.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Profil Görüntüle">
+                                                <MenuItem.Command>
+                                                    <Binding Path="DataContext.ViewProfileCommand" RelativeSource="{RelativeSource AncestorType=UserControl}" />
+                                                </MenuItem.Command>
+                                                <MenuItem.CommandParameter>
+                                                    <Binding Path="Uid" />
+                                                </MenuItem.CommandParameter>
+                                            </MenuItem>
+                                            <MenuItem Header="Mesaj Gönder">
+                                                <MenuItem.Command>
+                                                    <Binding Path="DataContext.MessageCommand" RelativeSource="{RelativeSource AncestorType=UserControl}" />
+                                                </MenuItem.Command>
+                                                <MenuItem.CommandParameter>
+                                                    <Binding Path="Uid" />
+                                                </MenuItem.CommandParameter>
+                                            </MenuItem>
+                                            <Separator />
+                                            <MenuItem Header="Liderlik Devret"
+                                                      Visibility="{Binding IsLeader, Converter={StaticResource BoolToVis}}"
+                                                      IsEnabled="{Binding IsLeader, Converter={StaticResource InvBoolToVis}}">
+                                                <MenuItem.Command>
+                                                    <Binding Path="DataContext.TransferLeadershipCommand" RelativeSource="{RelativeSource AncestorType=UserControl}" />
+                                                </MenuItem.Command>
+                                                <MenuItem.CommandParameter>
+                                                    <Binding Path="Uid" />
+                                                </MenuItem.CommandParameter>
+                                            </MenuItem>
+                                            <MenuItem Header="Kickle"
+                                                      Visibility="{Binding IsLeader, Converter={StaticResource BoolToVis}}"
+                                                      IsEnabled="{Binding IsLeader, Converter={StaticResource InvBoolToVis}}">
+                                                <MenuItem.Command>
+                                                    <Binding Path="DataContext.KickMemberCommand" RelativeSource="{RelativeSource AncestorType=UserControl}" />
+                                                </MenuItem.Command>
+                                                <MenuItem.CommandParameter>
+                                                    <Binding Path="Uid" />
+                                                </MenuItem.CommandParameter>
+                                            </MenuItem>
+                                            <MenuItem Header="Partiden Çık"
+                                                      Visibility="{Binding IsLeader, Converter={StaticResource InvBoolToVis}}">
+                                                <MenuItem.Command>
+                                                    <Binding Path="DataContext.LeavePartyCommand" RelativeSource="{RelativeSource AncestorType=UserControl}" />
+                                                </MenuItem.Command>
+                                            </MenuItem>
+                                            <MenuItem Header="Partiyi Dağıt"
+                                                      Visibility="{Binding IsLeader, Converter={StaticResource BoolToVis}}">
+                                                <MenuItem.Command>
+                                                    <Binding Path="DataContext.DisbandPartyCommand" RelativeSource="{RelativeSource AncestorType=UserControl}" />
+                                                </MenuItem.Command>
+                                            </MenuItem>
+                                        </ContextMenu>
+                                    </Border.ContextMenu>
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Border Width="42" Height="42" CornerRadius="21"
+                                                Background="{DynamicResource PrimaryGradientBrush}" VerticalAlignment="Center">
+                                            <Grid>
+                                                <Image Source="{Binding Avatar, Converter={StaticResource StrToImg}}"
+                                                       Visibility="{Binding Avatar, Converter={StaticResource HasAvatarVis}}"
+                                                       Stretch="UniformToFill" />
+                                                <TextBlock Text="{Binding DisplayName, Converter={StaticResource InvHasAvatarVis}}"
+                                                           Foreground="White" FontSize="15" FontWeight="Bold"
+                                                           HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            </Grid>
+                                        </Border>
+
+                                        <StackPanel Grid.Column="1" Margin="14,0,0,0" VerticalAlignment="Center">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding DisplayName}" FontSize="14" FontWeight="SemiBold"
+                                                           Foreground="{DynamicResource TextPrimaryBrush}" TextTrimming="CharacterEllipsis" />
+                                                <TextBlock Text="{Binding Username}" FontSize="12"
+                                                           Foreground="{DynamicResource TextSecondaryBrush}" Margin="8,0,0,0"
+                                                           TextTrimming="CharacterEllipsis" />
+                                                <Border Width="16" Height="16" CornerRadius="8"
+                                                        Background="{DynamicResource PrimaryBrush}"
+                                                        Visibility="{Binding IsLeader, Converter={StaticResource BoolToVis}}"
+                                                        Margin="8,0,0,0" VerticalAlignment="Center">
+                                                    <TextBlock Text="&#xE72E;" FontFamily="Segoe MDL2 Assets" FontSize="8"
+                                                               Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                </Border>
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                                                <Ellipse Width="8" Height="8" VerticalAlignment="Center">
+                                                    <Ellipse.Style>
+                                                        <Style TargetType="Ellipse">
+                                                            <Setter Property="Fill" Value="#6B7280" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding IsOnline}" Value="True">
+                                                                    <Setter Property="Fill" Value="#34D399" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Ellipse.Style>
+                                                </Ellipse>
+                                                <TextBlock FontSize="12" Margin="6,0,0,0" VerticalAlignment="Center">
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="TextBlock">
+                                                            <Setter Property="Text" Value="Çevrimdışı" />
+                                                            <Setter Property="Foreground" Value="{DynamicResource TextMutedBrush}" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding IsOnline}" Value="True">
+                                                                    <Setter Property="Text" Value="Çevrimiçi" />
+                                                                    <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+                                                <!-- Voice indicators -->
+                                                <TextBlock Text="🎤" FontSize="11" Margin="8,0,0,0" VerticalAlignment="Center"
+                                                           Visibility="{Binding IsInVoice, Converter={StaticResource BoolToVis}}" />
+                                                <TextBlock Text="🔇" FontSize="11" Margin="4,0,0,0" VerticalAlignment="Center"
+                                                           Foreground="{DynamicResource DangerBrush}"
+                                                           Visibility="{Binding IsVoiceMuted, Converter={StaticResource BoolToVis}}" />
+                                                <TextBlock Text="🔇" FontSize="11" Margin="4,0,0,0" VerticalAlignment="Center"
+                                                           Foreground="{DynamicResource DangerBrush}"
+                                                           Visibility="{Binding IsVoiceDeafened, Converter={StaticResource BoolToVis}}" />
+                                                <Ellipse Width="6" Height="6" Fill="#34D399" Margin="4,0,0,0" VerticalAlignment="Center"
+                                                         Visibility="{Binding IsSpeaking, Converter={StaticResource BoolToVis}}" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
+
+                <!-- Pending Invites -->
+                <Border Style="{StaticResource CardStyle}" Padding="24,20" Margin="0,16,0,0"
+                        Visibility="{Binding PendingInvites.Count, Converter={StaticResource BoolToVis}}">
+                    <StackPanel>
+                        <TextBlock Text="BEKLEYEN DAVETLER" Style="{StaticResource NavSectionHeaderStyle}" />
+                        <ItemsControl ItemsSource="{Binding PendingInvites}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Style="{StaticResource CardStyle}" Margin="0,8,0,0" Padding="16,12">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                                <Border Width="40" Height="40" CornerRadius="20"
+                                                        Background="{DynamicResource PrimaryGradientBrush}">
+                                                    <TextBlock Text="{Binding FromDisplayName, Converter={StaticResource InvHasAvatarVis}}"
+                                                               Foreground="White" FontSize="14" FontWeight="Bold"
+                                                               HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                </Border>
+                                                <StackPanel Margin="12,0,0,0" VerticalAlignment="Center">
+                                                    <TextBlock Text="{Binding FromDisplayName}" FontSize="13" FontWeight="SemiBold"
+                                                               Foreground="{DynamicResource TextPrimaryBrush}" />
+                                                    <TextBlock Text="{Binding FromUsername}" FontSize="11"
+                                                               Foreground="{DynamicResource TextSecondaryBrush}" />
+                                                </StackPanel>
+                                            </StackPanel>
+                                            <Button Grid.Column="2" Content="Kabul Et" Style="{StaticResource SmallPrimaryButtonStyle}"
+                                                    Padding="14,8" Margin="0,0,8,0"
+                                                    Command="{Binding AcceptCommand}" IsEnabled="{Binding IsIdle}" />
+                                            <Button Grid.Column="3" Content="Reddet" Style="{StaticResource GhostButtonStyle}"
+                                                    Padding="14,8"
+                                                    Command="{Binding DeclineCommand}" IsEnabled="{Binding IsIdle}" />
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

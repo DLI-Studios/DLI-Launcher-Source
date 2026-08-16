@@ -1,0 +1,238 @@
+<UserControl x:Class="DLI.Connect.Views.ProfileView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:utilities="clr-namespace:DLI.Connect.Utilities">
+    <UserControl.Resources>
+        <utilities:BooleanToVisibilityConverter x:Key="BoolToVis" />
+        <utilities:InverseBooleanToVisibilityConverter x:Key="InvBoolToVis" />
+        <utilities:HasAvatarToVisibilityConverter x:Key="HasAvatarVis" />
+        <utilities:InverseHasAvatarToVisibilityConverter x:Key="InvHasAvatarVis" />
+        <utilities:StringToImageSourceConverter x:Key="StrToImg" />
+    </UserControl.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <Grid Margin="32,28,32,28">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel>
+                <TextBlock Text="Profil" Style="{StaticResource SectionTitleStyle}" />
+                <TextBlock Text="Profilini düzenle, avatarını ve durumunu yönet."
+                           Style="{StaticResource MutedTextStyle}" Margin="0,4,0,0" />
+                <TextBlock Text="{Binding ErrorMessage}" Foreground="{DynamicResource DangerBrush}" FontSize="12"
+                           Margin="0,8,0,0" TextWrapping="Wrap" />
+            </StackPanel>
+
+            <Grid Grid.Row="1" Margin="0,24,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Avatar column -->
+                <StackPanel Width="220" Margin="0,0,32,0">
+                    <Border Width="180" Height="180" CornerRadius="90" VerticalAlignment="Center"
+                            Background="{DynamicResource LogoGradientBrush}"
+                            BorderBrush="{DynamicResource UserCardBorderBrush}" BorderThickness="1">
+                        <Grid>
+                            <Image Source="{Binding AvatarUrl, Converter={StaticResource StrToImg}}"
+                                   Visibility="{Binding HasAvatar, Converter={StaticResource HasAvatarVis}}"
+                                   Stretch="UniformToFill" />
+                            <TextBlock Text="{Binding Initial}" FontSize="64" FontWeight="Bold"
+                                       Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       Visibility="{Binding HasAvatar, Converter={StaticResource InvHasAvatarVis}}" />
+
+                            <Image Source="{Binding AvatarPreview}"
+                                   Visibility="{Binding HasPendingAvatar, Converter={StaticResource BoolToVis}}"
+                                   Stretch="UniformToFill" />
+                        </Grid>
+                    </Border>
+
+                    <Button Content="Avatar Seç" Style="{StaticResource SecondaryButtonStyle}" Padding="14,10"
+                            Margin="0,20,0,0" Click="OnChangeAvatarClick"
+                            Visibility="{Binding HasPendingAvatar, Converter={StaticResource InvBoolToVis}}" />
+                    <Grid Margin="0,20,0,0" Visibility="{Binding HasPendingAvatar, Converter={StaticResource BoolToVis}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Content="Kaydet" Style="{StaticResource PrimaryButtonStyle}"
+                                Padding="14,10" Margin="0,0,6,0" Command="{Binding SaveAvatarCommand}"
+                                IsEnabled="{Binding IsIdle}" />
+                        <Button Grid.Column="1" Content="Vazgeç" Style="{StaticResource GhostButtonStyle}"
+                                Padding="14,10" Margin="6,0,0,0" Command="{Binding CancelAvatarCommand}" />
+                    </Grid>
+                    <Button Content="Avatarı Kaldır" Style="{StaticResource DangerButtonStyle}" Padding="14,10"
+                            Margin="0,10,0,0" Command="{Binding RemoveAvatarCommand}"
+                            Visibility="{Binding HasAvatar, Converter={StaticResource BoolToVis}}"
+                            IsEnabled="{Binding IsIdle}" />
+
+                    <TextBlock Text="DURUM" Style="{StaticResource NavSectionHeaderStyle}" Margin="0,28,0,8" />
+                    <Button Command="{Binding SetOnlineCommand}" Margin="0,0,0,4">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource NavItemButtonStyle}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Status, Mode=OneWay}" Value="online">
+                                        <Setter Property="Background" Value="{DynamicResource NavActiveBrush}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse Width="8" Height="8" Fill="#23A55A" Effect="{StaticResource StatusGlow}"
+                                     VerticalAlignment="Center" />
+                            <TextBlock Text="Çevrimiçi" FontSize="12" Margin="8,0,0,0"
+                                       Foreground="{DynamicResource TextSecondaryBrush}" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding SetAwayCommand}" Margin="0,0,0,4">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource NavItemButtonStyle}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Status, Mode=OneWay}" Value="away">
+                                        <Setter Property="Background" Value="{DynamicResource NavActiveBrush}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse Width="8" Height="8" Fill="#F0B232" VerticalAlignment="Center" />
+                            <TextBlock Text="Boşta" FontSize="12" Margin="8,0,0,0"
+                                       Foreground="{DynamicResource TextSecondaryBrush}" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding SetDoNotDisturbCommand}" Margin="0,0,0,4">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource NavItemButtonStyle}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Status, Mode=OneWay}" Value="dnd">
+                                        <Setter Property="Background" Value="{DynamicResource NavActiveBrush}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse Width="8" Height="8" Fill="#F23F43" VerticalAlignment="Center" />
+                            <TextBlock Text="Rahatsız Etmeyin" FontSize="12" Margin="8,0,0,0"
+                                       Foreground="{DynamicResource TextSecondaryBrush}" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                    <Button Command="{Binding SetInvisibleCommand}" Margin="0,0,0,4">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource NavItemButtonStyle}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Status, Mode=OneWay}" Value="invisible">
+                                        <Setter Property="Background" Value="{DynamicResource NavActiveBrush}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <StackPanel Orientation="Horizontal">
+                            <Ellipse Width="8" Height="8" Fill="#80848E" VerticalAlignment="Center" />
+                            <TextBlock Text="Gizli" FontSize="12" Margin="8,0,0,0"
+                                       Foreground="{DynamicResource TextSecondaryBrush}" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+                <!-- Details column -->
+                <StackPanel Grid.Column="1">
+                    <Border Style="{StaticResource CardStyle}" Padding="24,20">
+                        <StackPanel>
+                            <TextBlock Text="TEMEL BİLGİLER" Style="{StaticResource NavSectionHeaderStyle}" />
+
+                            <TextBlock Text="Kullanıcı adı" Style="{StaticResource LabelTextStyle}" Margin="0,16,0,0" />
+                            <TextBlock Text="{Binding Username}" FontSize="13" Margin="0,4,0,0"
+                                       Foreground="{DynamicResource TextPrimaryBrush}" />
+
+                            <TextBlock Text="E-posta" Style="{StaticResource LabelTextStyle}" Margin="0,16,0,0" />
+                            <TextBlock Text="{Binding Email}" FontSize="13" Margin="0,4,0,0"
+                                       Foreground="{DynamicResource TextPrimaryBrush}" />
+
+                            <TextBlock Text="Hesap oluşturma tarihi" Style="{StaticResource LabelTextStyle}" Margin="0,16,0,0" />
+                            <TextBlock Text="{Binding JoinedDateText}" FontSize="13" Margin="0,4,0,0"
+                                       Foreground="{DynamicResource TextPrimaryBrush}" />
+                        </StackPanel>
+                    </Border>
+
+                    <Border Style="{StaticResource CardStyle}" Padding="24,20" Margin="0,16,0,0">
+                        <StackPanel>
+                            <TextBlock Text="GÖRÜNEN AD" Style="{StaticResource NavSectionHeaderStyle}" />
+
+                            <Grid Margin="0,12,0,0" Visibility="{Binding IsEditingName, Converter={StaticResource InvBoolToVis}}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding DisplayName}" FontSize="15" FontWeight="SemiBold"
+                                           Foreground="{DynamicResource TextPrimaryBrush}" VerticalAlignment="Center"
+                                           TextTrimming="CharacterEllipsis" />
+                                <Button Grid.Column="1" Content="Düzenle" Style="{StaticResource GhostButtonStyle}"
+                                        Padding="14,8" Command="{Binding StartEditNameCommand}" />
+                            </Grid>
+
+                            <Grid Margin="0,12,0,0" Visibility="{Binding IsEditingName, Converter={StaticResource BoolToVis}}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}"
+                                         MaxLength="32" />
+                                <Button Grid.Column="1" Content="Kaydet" Style="{StaticResource SmallPrimaryButtonStyle}"
+                                        Padding="14,8" Margin="10,0,0,0" Command="{Binding SaveDisplayNameCommand}"
+                                        IsEnabled="{Binding IsIdle}" />
+                                <Button Grid.Column="2" Content="Vazgeç" Style="{StaticResource GhostButtonStyle}"
+                                        Padding="14,8" Margin="8,0,0,0" Command="{Binding CancelEditNameCommand}" />
+                            </Grid>
+
+                            <TextBlock Text="BİYOGRAFİ" Style="{StaticResource NavSectionHeaderStyle}" Margin="0,24,0,0" />
+
+                            <Grid Margin="0,12,0,0" Visibility="{Binding IsEditingBio, Converter={StaticResource InvBoolToVis}}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding Bio}" FontSize="13" TextWrapping="Wrap"
+                                           Foreground="{DynamicResource TextSecondaryBrush}" VerticalAlignment="Center">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Text" Value="Henüz bir biyografi eklenmemiş." />
+                                            <Setter Property="Foreground" Value="{DynamicResource TextMutedBrush}" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Bio}" Value="">
+                                                    <Setter Property="Text" Value="Henüz bir biyografi eklenmemiş." />
+                                                    <Setter Property="Foreground" Value="{DynamicResource TextMutedBrush}" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                                <Button Grid.Column="1" Content="Düzenle" Style="{StaticResource GhostButtonStyle}"
+                                        Padding="14,8" Command="{Binding StartEditBioCommand}" />
+                            </Grid>
+
+                            <Grid Margin="0,12,0,0" Visibility="{Binding IsEditingBio, Converter={StaticResource BoolToVis}}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox Text="{Binding Bio, UpdateSourceTrigger=PropertyChanged}"
+                                         MaxLength="200" TextWrapping="Wrap"
+                                         AcceptsReturn="True" Height="80" />
+                                <Button Grid.Column="1" Content="Kaydet" Style="{StaticResource SmallPrimaryButtonStyle}"
+                                        Padding="14,8" Margin="10,0,0,0" Command="{Binding SaveBioCommand}"
+                                        IsEnabled="{Binding IsIdle}" />
+                                <Button Grid.Column="2" Content="Vazgeç" Style="{StaticResource GhostButtonStyle}"
+                                        Padding="14,8" Margin="8,0,0,0" Command="{Binding CancelEditBioCommand}" />
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

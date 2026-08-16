@@ -1,0 +1,93 @@
+import { FolderOpen, RefreshCw, Package, ExternalLink } from 'lucide-react'
+import { launcherBridge } from '@/services/launcherBridge'
+import { useI18n } from '@/lib/i18n'
+
+export function ModpacksPage() {
+  const { t } = useI18n()
+  const openModsFolder = () => {
+    launcherBridge.send('OPEN_MODS_FOLDER')
+  }
+
+  return (
+    <div className="flex flex-col h-full p-6 gap-5 overflow-y-auto">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="flex size-10 items-center justify-center rounded-xl bg-primary/15">
+            <Package className="size-5 text-primary" />
+          </div>
+          <div>
+            <h1 className="text-2xl font-black tracking-widest text-foreground uppercase">{t('modpacks.title')}</h1>
+            <p className="text-sm text-muted-foreground">{t('modpacks.subtitle')}</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={openModsFolder}
+            className="flex items-center gap-2 rounded-xl border border-primary/40 bg-primary/10 px-4 py-2 text-xs font-semibold text-primary transition-all hover:bg-primary/20 hover:border-primary/60"
+          >
+            <FolderOpen className="size-3.5" />
+            {t('modpacks.open')}
+          </button>
+          <button
+            type="button"
+            onClick={openModsFolder}
+            className="flex items-center gap-2 rounded-xl border border-border bg-card/50 px-4 py-2 text-xs font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+          >
+            <RefreshCw className="size-3.5" />
+            {t('modpacks.refresh')}
+          </button>
+        </div>
+      </div>
+
+      {/* Mods Folder Card */}
+      <div className="rounded-xl border border-border bg-card/50 p-6">
+        <div className="flex flex-col items-center gap-4 text-center">
+          <div className="flex size-16 items-center justify-center rounded-2xl bg-primary/10">
+            <FolderOpen className="size-8 text-primary" />
+          </div>
+          <div>
+            <h3 className="text-lg font-bold text-foreground">{t('modpacks.folder')}</h3>
+            <p className="text-sm text-muted-foreground mt-1">
+              {t('modpacks.desc1')}
+              <br />
+              {t('modpacks.desc2')}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={openModsFolder}
+            className="flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white transition-all hover:brightness-110 active:scale-[0.98]"
+          >
+            <ExternalLink className="size-4" />
+            {t('modpacks.openPath')}
+          </button>
+        </div>
+      </div>
+
+      {/* Info */}
+      <div className="rounded-xl border border-primary/15 bg-primary/5 p-4">
+        <span className="text-xs font-bold text-primary mb-2 block">{t('modpacks.howTo')}</span>
+        <ul className="space-y-1.5 text-[11px] text-muted-foreground leading-relaxed">
+          <li className="flex items-start gap-2">
+            <span className="text-primary mt-0.5">1.</span>
+            <span>{t('modpacks.step1')}</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-primary mt-0.5">2.</span>
+            <span>{t('modpacks.step2')}</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-primary mt-0.5">3.</span>
+            <span>{t('modpacks.step3')}</span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-primary mt-0.5">4.</span>
+            <span>{t('modpacks.step4')}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  )
+}
